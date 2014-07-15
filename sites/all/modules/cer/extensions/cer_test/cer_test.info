@@ -1,0 +1,38 @@
+name = CER Test
+description = A test environment for CER's unit tests.
+core = 7.x
+hidden = true
+dependencies[] = cer
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = image
+dependencies[] = node_reference
+dependencies[] = taxonomy
+dependencies[] = user_reference
+features[cer][] = 27274aa687fbbdee4cf32ee43d25e613
+features[cer][] = 2c949d3763368ce5c4485da5c28877af
+features[cer][] = a2b01c099ffb0b9be63a6d03f8b25458
+features[cer][] = a5c0fbea67a912b90c50468b9f1f67ba
+features[features_api][] = api:2
+features[field_base][] = field_author
+features[field_base][] = field_my_content
+features[field_base][] = field_related_articles
+features[field_base][] = field_related_pages
+features[field_base][] = field_tags
+features[field_instance][] = node-article-field_author
+features[field_instance][] = node-article-field_related_pages
+features[field_instance][] = node-page-field_author
+features[field_instance][] = node-page-field_related_articles
+features[field_instance][] = node-page-field_tags
+features[field_instance][] = taxonomy_term-tags-field_my_content
+features[field_instance][] = user-user-field_my_content
+features[taxonomy][] = tags
+project path = sites/all/modules/cer
+
+files[] = tests/CerInternals.test
+; Information added by Drupal.org packaging script on 2014-07-05
+version = "7.x-3.0-alpha5+37-dev"
+core = "7.x"
+project = "cer"
+datestamp = "1404571730"
+

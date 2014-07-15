@@ -1,0 +1,178 @@
+<?php
+
+/**
+ * Implements hook_field_info().
+ */
+function cer_entity_settings_field_info() {
+  return array(
+    'cer' => array(
+      'label' => t('CER Settings'),
+      'no ui' => TRUE,
+    ),
+  );
+}
+
+function _cer_entity_settings_create_instance(CerField $field) {
+  $instance = field_info_instance($field->entityType, 'cer', $field->bundle);
+
+  if (empty($instance)) {
+    $instance = array(
+      'field_name' => 'cer',
+      'entity_type' => $field->entityType,
+      'bundle' => $field->bundle,
+      'label' => t('CER Settings'),
+    );
+    field_create_instance($instance);
+  }
+}
+
+function _cer_entity_settings_delete_instance(CerField $field) {
+  $instance = field_info_instance($field->entityType, 'cer', $field->bundle);
+
+  if ($instance) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function cer_entity_settings_permission() {
+  return array(
+    'override cer settings' => array(
+      'title' => t('Override corresponding references'),
+      'description' => t('Allows the user to set corresponding reference settings for individual entities.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_attach_form().
+ */
+function cer_entity_settings_field_attach_form($entity_type, $entity, &$form, &$form_state, $language) {
+  // Don't do anything if the user hasn't got permission.
+  if (! user_access('override cer settings')) {
+    return;
+  }
+
+  foreach (element_children($form) as $key) {
+    if (substr($key, 0, 6) == 'field_') {
+      $identifier = $form['#entity_type'] . ':' . $form['#bundle'] . ":{$key}";
+
+      $plugin = CerField::getPluginInfo($identifier);
+      if ($plugin) {
+        $form[$key]['#process'][] = '_cer_entity_settings_attach';
+      }
+    }
+  }
+}
+
+/**
+ * #process function for the root elements of attached fields.
+ */
+function _cer_entity_settings_attach(array $element, array &$form_state, array $form) {
+  $language = $element['#language'];
+  $field = $element['#array_parents'][0];
+  $instance = $form_state['field'][$field][$language]['instance'];
+
+  // Issue #2236973: Oooh, is this a gotcha. Depending on the circumstances, the entity could
+  // be in $form['#entity'] or $element[$language]['#entity']. The decision is made by the core
+  // field_default_form() function, according to a couple of different factors.
+  $entity = new EntityDrupalWrapper($form['#entity_type'], (isset($element[$language]['#entity']) ? $element[$language]['#entity'] : $form['#entity']));
+
+  // Read settings in the database.
+  $settings = db_select('cer_entity_settings', 'ces')
+    ->fields('ces', array(
+      'pid', 'status',
+    ))
+    ->condition('entity_type', $form['#entity_type'])
+    ->condition('entity_id', $entity->getIdentifier())
+    ->condition('fiid', $instance['id'])
+    ->execute()
+    ->fetchAllKeyed();
+
+  $presets = _cer_filter_presets($entity->cer->lineage->value() . $field);
+
+  if ($presets) {
+    $element['cer'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Correspond %label with...', array('%label' => $instance['label'])),
+      '#parents' => array(
+        'cer',
+        $instance['id'],
+      ),
+    );
+
+    foreach ($presets as $id => $preset) {
+      $element['cer']['#options'][$id] = $preset->right->getLabel();
+
+      // By default, the preset is enabled...
+      $element['cer']['#default_value'][] = $id;
+
+      // ...and should only be disabled if it's been specifically turned off.
+      if (isset($settings[$id]) && empty($settings[$id])) {
+        $index = array_search($id, $element['cer']['#default_value']);
+        unset($element['cer']['#default_value'][$index]);
+      }
+    }
+
+    $element['cer']['#options']['preserve'] = t('Remember these settings');
+
+    // If there were settings stored in the database, let's assume the user wants
+    // to continue preserving their settings.
+    if ($settings) {
+      $element['cer']['#default_value'][] = 'preserve';
+    }
+  }
+  
+  return $element;
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function cer_entity_settings_entity_presave($entity, $type) {
+  list($id, ,) = entity_extract_IDs($type, $entity);
+  
+  // The list of preset IDs to be used by our implementations of hook_cer_entity_*
+  $cer = array();
+
+  // We expect an array of checkbox values, keyed by field instance ID.
+  if (isset($entity->cer)) {
+    // Delete the previous settings for this entity.
+    db_delete('cer_entity_settings')->condition('entity_type', $type)->condition('entity_id', $id)->execute();
+
+    // If any settings are preserved, the database records will go in here.
+    $records = array();
+
+    foreach ($entity->cer as $fiid => $settings) {
+      foreach ($settings as $key => $value) {
+        if ($key != 'preserve') {
+          // If we're keeping the settings for this field instance, create a record
+          // of this preset's status for this instance on this entity.
+          if ($settings['preserve']) {
+            $records[] = array(
+              'pid' => $key,
+              'entity_type' => $type,
+              'entity_id' => $id,
+              'fiid' => $fiid,
+              'status' => (boolean) $value,
+            );
+          }
+
+          // If the preset is enabled, add it to the list of presets to use.
+          if ($value) {
+            $cer[] = $value;
+          }
+        }
+      }
+    }
+
+    foreach ($records as $record) {
+      drupal_write_record('cer_entity_settings', $record);
+    }
+  }
+
+  // All we'll need from here on out are the preset IDs.
+  $entity->cer = $cer;
+}

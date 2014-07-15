@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function cer_entity_settings_install() {
+  $field = array(
+    'type' => 'cer',
+    'field_name' => 'cer',
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+    'locked' => TRUE,
+  );
+  field_create_field($field);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cer_entity_settings_uninstall() {
+  field_delete_field('cer');
+}
+
+/**
+ * Implements hook_field_schema().
+ */
+function cer_entity_settings_field_schema(array $field) {
+  if ($field['type'] == 'cer') {
+    return array(
+      'columns' => array(
+        'pid' => array(
+          'type' => 'varchar',
+          'length' => 32,
+          'not null' => TRUE,
+        ),
+      ),
+      'foreign keys' => array(
+        'cer' => array(
+          'table' => 'cer',
+          'columns' => array('pid' => 'id'),
+        ),
+      ),
+    );
+  }
+}
+
+/**
+ * Converts the CER Entity Settings database table to a field.
+ */
+function cer_entity_settings_update_7001() {
+  cer_entity_settings_install();
+
+  ctools_include('export');
+  foreach (ctools_export_crud_load_all('cer') as $preset) {
+    module_invoke('cer_entity_settings', 'cer_preset_create', $preset);
+  }
+
+  // db_drop_table('cer_entity_settings');
+}
