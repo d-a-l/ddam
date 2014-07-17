@@ -27,7 +27,8 @@ regions[page_bottom]    = 'Page bottom'
 ; stylesheets[all][] = css/style.css
 stylesheets[all][] = bootstrap/dist/css/bootstrap.css
 stylesheets[all][] = bootstrap/dist/css/bootstrap-theme.css
-stylesheets[all][] = css/override.css
+stylesheets[all][] = css/bootstrap-overrides.css
+stylesheets[all][] = css/partial_collapsible.css
 stylesheets[all][] = css/ddam.css
 
 
@@ -44,6 +45,7 @@ stylesheets[all][] = css/ddam.css
 ;;;;;;;;;;;;;;;;;;;;;
 
 scripts[] = 'bootstrap/dist/js/bootstrap.min.js'
+scripts[] = 'js/partial_collapsible.js'
  
 ; scripts[] = 'bootstrap/js/affix.js'
 ; scripts[] = 'bootstrap/js/alert.js'

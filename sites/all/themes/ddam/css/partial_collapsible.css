@@ -1,0 +1,23 @@
+/*
+ DDAM css
+*/
+
+/* partial collapsible */
+
+.p-collapsible {
+    margin: 2em 0;
+}
+
+.p-collapsible-content {
+    height: 350px;
+    min-height: 350px;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
+.p-collapsible-toogle {
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
+    margin-top: 2px;
+    text-align: center;
+}
