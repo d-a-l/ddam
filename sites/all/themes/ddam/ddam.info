@@ -25,8 +25,7 @@ regions[page_bottom]    = 'Page bottom'
 ;;;;;;;;;;;;;;;;;;;;;
 
 ; stylesheets[all][] = css/style.css
-stylesheets[all][] = bootstrap/dist/css/bootstrap.css
-stylesheets[all][] = bootstrap/dist/css/bootstrap-theme.css
+stylesheets[all][] = bootswatch/ddam/bootstrap.css
 stylesheets[all][] = css/bootstrap-overrides.css
 stylesheets[all][] = css/partial_collapsible.css
 stylesheets[all][] = css/ddam.css
