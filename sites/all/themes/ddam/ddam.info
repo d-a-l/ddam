@@ -43,7 +43,7 @@ stylesheets[all][] = css/ddam.css
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
 
-scripts[] = 'bootstrap/dist/js/bootstrap.min.js'
+scripts[] = 'js/bootstrap.min.js'
 scripts[] = 'js/partial_collapsible.js'
  
 ; scripts[] = 'bootstrap/js/affix.js'
