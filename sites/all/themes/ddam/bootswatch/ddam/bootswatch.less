@@ -32,9 +32,9 @@
     }
   }
 
-  &-brand {
-    padding: 18.5px 15px 20.5px;
-  }
+  // &-brand {
+  //  padding: 18.5px 15px 20.5px;
+  //}
 }
 
 // Buttons ====================================================================
@@ -48,6 +48,11 @@
 }
 
 // Typography =================================================================
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, h6 {
+    letter-spacing: -1px;
+}
 
 .text-primary,
 .text-primary:hover {
@@ -110,6 +115,52 @@ table,
   &-bordered > tbody > tr > td,
   &-bordered > tfoot > tr > td {
     border: 1px solid @table-border-color;
+  }
+}
+
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+      #gradient > .striped(@color: rgba(0,0,0,.016); @angle: 135deg);
+      background-size: 30px 30px;
+  }
+}
+
+// override mixins/table-row.less
+.table-row-variant(@state; @background) {
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+  .table > thead > tr,
+  .table > tbody > tr,
+  .table > tfoot > tr {
+    > td.@{state},
+    > th.@{state} {
+      background-color: @background;
+    }
+    &.@{state} {
+      background-color: @background;
+    }
+    &.@{state} > td,
+    &.@{state} > th {
+      background-color: transparent;
+    }
+  }
+
+  // Hover states for `.table-hover`
+  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  .table-hover > tbody > tr {
+    > td.@{state}:hover,
+    > th.@{state}:hover {
+      background-color: darken(@background, 5%);
+    }
+
+    &.@{state}:hover {
+      background-color: darken(@background, 5%);
+    }
+    &.@{state}:hover > td,
+    &:hover > .@{state},
+    &.@{state}:hover > th {
+      background-color: transparent;
+    }
   }
 }
 

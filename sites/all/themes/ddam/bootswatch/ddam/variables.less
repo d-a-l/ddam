@@ -86,7 +86,7 @@
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    @font-family-base;
-@headings-font-weight:    400;
+@headings-font-weight:    700;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
 
@@ -149,7 +149,7 @@
 //** Default background color used for all tables.
 @table-bg:                      transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               #f4f7f7; // #f9f9f9;
+@table-bg-accent:               transparent; // @gray-lighter; // #f4f7f7; // #f9f9f9;
 //** Background color used for `.table-hover`.
 @table-bg-hover:                @gray-lighter;
 @table-bg-active:               @table-bg-hover;
@@ -348,7 +348,7 @@
 @container-md:                 @container-desktop;
 
 // Large screen / wide desktop
-@container-large-desktop:      ((960px + @grid-gutter-width));
+@container-large-desktop:      ((1140px + @grid-gutter-width)); //960
 //** For `@screen-lg-min` and up.
 @container-lg:                 @container-large-desktop;
 
