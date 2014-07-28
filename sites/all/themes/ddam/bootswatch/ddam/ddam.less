@@ -3,3 +3,86 @@
 // Elementos exclusivos de la interfase DDAM.
 // -----------------------------------------------------------------------------
 
+
+/* 
+   p-collapsible-content
+   =====================
+*/
+
+.ddam-fields {
+
+   > h2, > h3,
+   > .required-fields > h2,
+   > .required-fields > h3,
+   > .field,
+   > .required-fields > .field {
+      margin: 0; padding: 0 10px;
+   }
+
+   > h2, > h3,
+   > .required-fields > h2,
+   > .required-fields > h3 {
+      color: white;
+      margin-top: 6px;
+      + div.field {
+         padding-top: 6px;
+      }
+   }
+
+   > h2,
+   > .required-fields > h2 {
+      background-color: @brand-primary;
+      font-size: 23px;
+      line-height: 38px;
+   }
+
+   > h3,
+   > .required-fields > h3 {
+      background-color: @gray;
+      font-size: 20px;
+      line-height: 26px;
+      font-style: italic;
+      font-weight: normal;
+      min-height: 32px;
+      > span {
+        display: inline-block;
+        margin-top: 4px;
+      }
+   }
+
+   > .field,
+    > .required-fields > .field {
+      line-height: 24px;
+      border-top: 1px solid @gray;
+      min-height: 27px;
+   }
+
+   .field.field-name-field-autor,
+   .field-name-field-titulo {
+       font-size: 20px;
+       line-height: 27px;
+       .field-items {
+         margin-top: -1px;
+       }
+   }
+
+   .field-label {
+       font-size: 13px;
+       font-weight: normal;
+       line-height: 16px;
+       min-height: 27px;
+       padding-right: 6px;
+       padding-top: 6px;
+       text-transform: uppercase;
+       width: 190px;
+   }
+
+   .field-items {
+       max-width: 700px;
+       margin-bottom: 2px;
+       p, p:last-child {
+         margin-bottom: 6px;
+       }
+   }
+}
+
