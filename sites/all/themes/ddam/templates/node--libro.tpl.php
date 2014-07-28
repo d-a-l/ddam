@@ -8,10 +8,11 @@
          <div class="title-wrapper">
             <div class="icon icon-<?php print $node->type; ?>" ></div>
             <div class="line autor"><?php print render($content['group_autoria']['field_autor'][0]); ?></div>
+
             <h1><?php print $node->title; ?></h1>
          </div>
          <div class="line">
-            <span><?php print render($content['group_edicion']['field_lugar_de_publicacion'][0]['#location']['city']); ?></span>, 
+            <span><?php print $content['group_edicion']['field_lugar_de_publicacion'][0]['#location']['city']; ?></span>, 
             <?php print render($content['group_edicion']['field_editor'][0]); ?>, 
             <span class="edicion"><?php print render($content['group_edicion']['field_edicion'][0]); ?>° edición</span>.
          </div>
@@ -38,6 +39,13 @@
          <div class="p-collapsible-content ddam-fields">
             <h2><span>Información Detallada</span></h2>
 <?php
+   // show all fields already been render
+   show($content['group_autoria']['field_autor'][0]);
+   show($content['group_edicion']['field_editor'][0]);
+   show($content['group_edicion']['field_edicion'][0]);
+   show($content['group_descripcion_obra']['field_idioma'][0]); 
+   show($content['group_descripcion_fisica']['field_paginas'][0]);
+
    // We hide the comments and links now so that we can render them later.
    hide($content['comments']);
    hide($content['links']);
