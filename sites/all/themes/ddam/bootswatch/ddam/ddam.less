@@ -5,8 +5,8 @@
 
 
 /* 
-   p-collapsible-content
-   =====================
+   ddam-fields (p-collapsible-content)
+   ===================================
 */
 
 .ddam-fields {
@@ -85,4 +85,83 @@
        }
    }
 }
+
+/*
+   top ddam "bibliocard"
+   =====================
+*/
+
+.bibliocard {
+   .title-wrapper {
+      margin: -8px 0 24px;
+      + div {
+        clear: left;
+      }
+   }
+   .icon {
+      width: 70px; height: 90px;
+      float: left;
+      margin: 4px 18px 0 0;
+   }
+   h1 {
+       font-size: 33px;
+       font-style: italic;
+       font-weight: normal;
+       letter-spacing: 0;
+       margin: 4px 0 0;
+   }
+   .line {
+      font-size: 21px;
+   }
+   .line.autor {
+     font-size: 30px;
+     font-weight: normal;
+   }
+   .year, 
+   .edicion {
+      font-weight: bold;
+   }
+}
+
+/* 
+   top ddam slideshow
+   ==================
+*/
+
+
+.slideshow-imagen {
+
+   padding: 50px 50px 14px;
+   background-color: @gray;
+
+   // .field-slideshow-image 
+   // .field-slideshow-slide 
+   // .field-slideshow-wrapper
+
+   .field-slideshow {
+      background-color: @gray-dark;
+       -webkit-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
+          -moz-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
+               box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
+   }
+   .field-slideshow-pager {
+     margin-top: 14px;
+   }
+   .field-slideshow-pager a {
+       background-color: #FFFFFF;
+       font-size: 13px;
+       margin: 0 7px 0 0;
+       padding: 1px 6px;
+   }
+   .field-slideshow-pager a:hover {
+       text-decoration: none;
+       background-color: @link-color;
+       color: white;
+   }
+   .field-slideshow-pager a.activeSlide {
+       background-color: @gray-lighter;
+       text-decoration: none;  
+   }
+}
+
 

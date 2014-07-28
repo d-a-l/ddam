@@ -23,7 +23,7 @@
       </div>
 
       <div class="left-items col-lg-5 col-lg-pull-7">
-         <div class="well slideshow-imagen gray-background">
+         <div class="well slideshow-imagen">
             <?php print render($content['field_imagen']); ?>
          </div>
          <div class="well actions-tab gray-background">

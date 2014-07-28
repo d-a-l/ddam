@@ -2,3 +2,33 @@
  DDAM css
 */
 
+/* 
+   layout
+   ======
+*/
+
+.container {
+    max-width: 940px;
+}
+
+.main-container {
+    padding-top: 60px;
+}
+
+#navbar {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.navbar.container > .container {
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+/* ======= iconos ======= */
+
+.bibliocard .icon.icon-libro {
+   width: 65px; height: 88px;
+   background: url('img/icons/libro.png') no-repeat -10px -10px transparent;
+}
