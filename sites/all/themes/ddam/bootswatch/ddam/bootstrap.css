@@ -6497,7 +6497,9 @@ h6, .h6 { font-size:floor((@font-size-h6 * 0.8333)); }
   background-color: #a7ac93;
 }
 .slideshow-imagen .field-slideshow {
-  background-color: #81876b;
+  overflow: inherit !important;
+}
+.slideshow-imagen .field-slideshow-image {
   -webkit-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
   -moz-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
   box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
