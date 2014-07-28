@@ -8,11 +8,11 @@
 //## Gray and brand colors for use across Bootstrap.
 
 @gray-darker:            lighten(#000, 13.5%); // #222
-@gray-dark:              #7b8a8b;   // #333
-@gray:                   #95a5a6; // #555
+@gray-dark:              #81876b; //verde oscuro oliva // #7b8a8b;   // #333
+@gray:                   #a7ac93; //verde claro oliva // #95a5a6; // #555
 @gray-light:             #b4bcc2;   // #999
-@gray-lighter:           #e3eef2; //#ecf0f1; // #eee
-@gray-more-lighter:      #f0f4f4;; // lighten(@gray-lighter, 20%);
+@gray-lighter:           #cacdbe; //verde extraclaro oliva // #e3eef2; //#ecf0f1; // #eee
+@gray-more-lighter:      #f0f4f4; // lighten(@gray-lighter, 20%);
 
 // Cosmo
 // @gray-darker:            lighten(#000, 13.5%); // #222
@@ -22,8 +22,8 @@
 // @gray-lighter:           lighten(#000, 90%); // #eee
 
 @brand-primary:         #800000; //bordo // #2780E3; 
-@brand-success:         #a7ac93; //verde claro oliva // #3FB618;
-@brand-info:            #81876b; //verde oliva oscuro // #9954BB;
+@brand-success:         #95a5a6; // gray // #a7ac93; //verde claro oliva // #3FB618;
+@brand-info:            #7b8a8b; // gray-dark // #81876b; //verde oliva oscuro // #9954BB;
 @brand-warning:         #F39C12;
 @brand-danger:          #E74C3C;
 
@@ -371,7 +371,7 @@
 
 // Navbar links
 @navbar-default-link-color:                #fff;
-@navbar-default-link-hover-color:          @brand-success;
+@navbar-default-link-hover-color:          @gray; // @brand-success;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 10%);
@@ -392,7 +392,7 @@
 // Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-color:                      #fff;
-@navbar-inverse-bg:                         @brand-success;
+@navbar-inverse-bg:                         @gray; // @brand-success;
 @navbar-inverse-border:                     transparent;
 
 // Inverted navbar links
@@ -434,7 +434,7 @@
 @nav-tabs-link-hover-border-color:          @gray-lighter;
 
 @nav-tabs-active-link-hover-bg:             @body-bg;
-@nav-tabs-active-link-hover-color:          @brand-success;
+@nav-tabs-active-link-hover-color:          @gray; // @brand-success;
 @nav-tabs-active-link-hover-border-color:   @gray-lighter;
 
 @nav-tabs-justified-link-border-color:            @gray-lighter;
@@ -451,19 +451,19 @@
 //##
 
 @pagination-color:                     #fff;
-@pagination-bg:                        @brand-success;
+@pagination-bg:                        @gray; // @brand-success;
 @pagination-border:                    transparent;
 
 @pagination-hover-color:               #fff;
-@pagination-hover-bg:                  darken(@brand-success, 15%);
+@pagination-hover-bg:                  darken(@gray, 15%);
 @pagination-hover-border:              transparent;
 
 @pagination-active-color:              #fff;
-@pagination-active-bg:                 darken(@brand-success, 15%);
+@pagination-active-bg:                 darken(@gray, 15%);
 @pagination-active-border:             transparent;
 
 @pagination-disabled-color:            @gray-lighter;
-@pagination-disabled-bg:               lighten(@brand-success, 15%);;
+@pagination-disabled-bg:               lighten(@gray, 15%);;
 @pagination-disabled-border:           transparent;
 
 
