@@ -80,40 +80,35 @@
  * @ingroup themeable
  */
 ?>
+<!-- <?php print $type; ?> -->
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-<!-- custom ddam theme node template -->
-<?php if ($view_mode == 'field_content'): ?>
+<?php print $user_picture; ?>
 
-    <span class="field-content-view-mode"><a href="<?php print $node_url; ?>"><?php print $title; ?></a></span>
+<?php print render($title_prefix); ?>
+<?php if (!$page): ?>
+ <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+<?php endif; ?>
+<?php print render($title_suffix); ?>
 
-<?php else: ?>
+<?php if ($display_submitted): ?>
+ <div class="submitted">
+   <?php print $submitted; ?>
+ </div>
+<?php endif; ?>
 
-  <?php print $user_picture; ?>
+<div class="content"<?php print $content_attributes; ?>>
+ <?php
+   // We hide the comments and links now so that we can render them later.
+   hide($content['comments']);
+   hide($content['links']);
+   print render($content);
+ ?>
+</div>
 
-  <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
+<?php print render($content['links']); ?>
 
-  <?php if ($display_submitted): ?>
-    <div class="submitted">
-      <?php print $submitted; ?>
-    </div>
-  <?php endif; ?>
-
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print render($content);
-    ?>
-  </div>
-
-  <?php print render($content['links']); ?>
-
-  <?php print render($content['comments']); ?>
+<?php print render($content['comments']); ?>
 
 <?php
   // print '<textarea cols="60" rows="20" style="width: 90%;">';
@@ -121,5 +116,5 @@
   // print_r( $node );
   // print '</textarea>';
 ?>
-<?php endif; ?>
+
 </div>
