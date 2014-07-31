@@ -167,4 +167,103 @@
    }
 }
 
+/* 
+   front novedades & slider
+   ========================
+*/
+
+// slideshow margins
+
+header#page-header {
+   margin: 0 0 40px;
+}
+
+// novedad margins
+
+.view-display-id-novedades_portada .views-row > .node {
+   margin: 40px 0;
+}
+
+/* -- interior --*/
+
+.backgnd-img-well {
+   > .view-content .views-row > .node {
+      position:relative;
+   }
+
+   > .view-content .views-row > .node {
+      img {
+         width: 100%;
+         height: auto;
+      }
+
+      @line-padding: 15px;
+      h2 {
+          bottom: 32%;
+          margin: 0;
+          padding: 0 @line-padding 10px;
+          position: absolute;
+          right: 0;
+          text-align: right;
+          width: 33%;
+
+          span {
+             background-color: @gray-darker;
+             display: inline;
+             font-size: 25px;
+             line-height: 57px;
+             padding: 5px 0 9px;
+             /* http://css-tricks.com/multi-line-padded-text */
+             box-shadow: @line-padding 0 0 @gray-darker, -@line-padding 0 0 @gray-darker;
+
+             a {
+                background-color: rgba(0, 0, 0, 0);
+                color: #FFFFFF;
+                display: inline;
+                font-size: 25px;
+                font-style: italic;
+                font-weight: normal;
+             }
+          }
+      }
+
+      .fields-wrapper{
+          background: fade(@brand-primary, 60%);
+          height: 25%;
+          overflow: hidden;
+          padding: 7px 18px;
+          position: absolute;
+          right: 0;
+          top: 67%;
+          width: 40%;
+          color:white;
+          line-height: 1.25em;
+      }
+   } 
+}
+
+#block-views-novedades-slideshow  {
+   .view-content .views-row > .node {
+      img {
+         max-width: 910px;
+      }
+
+      h2 { 
+         span {
+            font-size: 32px;
+            font-style: italic;
+            font-weight: normal;
+            line-height: 70px;
+            padding: 10px 0;
+            a {
+                font-size: 32px;
+            }
+         }
+      }
+   }
+}
+
+
+/* #views_slideshow_cycle_main_novedades-slideshow */
+
 

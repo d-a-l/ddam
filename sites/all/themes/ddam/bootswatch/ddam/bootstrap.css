@@ -6522,6 +6522,76 @@ h6, .h6 { font-size:floor((@font-size-h6 * 0.8333)); }
   background-color: #cacdbe;
   text-decoration: none;
 }
+/* 
+   front novedades & slider
+   ========================
+*/
+header#page-header {
+  margin: 0 0 40px;
+}
+.view-display-id-novedades_portada .views-row > .node {
+  margin: 40px 0;
+}
+/* -- interior --*/
+.backgnd-img-well > .view-content .views-row > .node {
+  position: relative;
+}
+.backgnd-img-well > .view-content .views-row > .node img {
+  width: 100%;
+  height: auto;
+}
+.backgnd-img-well > .view-content .views-row > .node h2 {
+  bottom: 32%;
+  margin: 0;
+  padding: 0 15px 10px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  width: 33%;
+}
+.backgnd-img-well > .view-content .views-row > .node h2 span {
+  background-color: #222222;
+  display: inline;
+  font-size: 25px;
+  line-height: 57px;
+  padding: 5px 0 9px;
+  /* http://css-tricks.com/multi-line-padded-text */
+  box-shadow: 15px 0 0 #222222, -15px 0 0 #222222;
+}
+.backgnd-img-well > .view-content .views-row > .node h2 span a {
+  background-color: rgba(0, 0, 0, 0);
+  color: #FFFFFF;
+  display: inline;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: normal;
+}
+.backgnd-img-well > .view-content .views-row > .node .fields-wrapper {
+  background: rgba(128, 0, 0, 0.6);
+  height: 25%;
+  overflow: hidden;
+  padding: 7px 18px;
+  position: absolute;
+  right: 0;
+  top: 67%;
+  width: 40%;
+  color: white;
+  line-height: 1.25em;
+}
+#block-views-novedades-slideshow .view-content .views-row > .node img {
+  max-width: 910px;
+}
+#block-views-novedades-slideshow .view-content .views-row > .node h2 span {
+  font-size: 32px;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 70px;
+  padding: 10px 0;
+}
+#block-views-novedades-slideshow .view-content .views-row > .node h2 span a {
+  font-size: 32px;
+}
+/* #views_slideshow_cycle_main_novedades-slideshow */
 .navbar {
   border-width: 0;
 }

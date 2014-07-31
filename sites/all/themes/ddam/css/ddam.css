@@ -15,6 +15,10 @@
     padding-top: 60px;
 }
 
+.front .main-container {
+    padding-top: 0px;
+}
+
 #navbar {
     max-width: 100%;
     width: 100%;
@@ -26,9 +30,33 @@
     max-width: 1140px;
 }
 
+/* titulos de secciones home */
+
+.front section > h1,
+.front section > h2 {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 19px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 8px 11px !important;
+}
+
+/* imagenes */
+
+img {
+    border: 0 none;
+    height: auto;
+    width: 100%;
+}
+
 /* ======= iconos ======= */
 
 .bibliocard .icon.icon-libro {
    width: 65px; height: 88px;
    background: url('img/icons/libro.png') no-repeat -10px -10px transparent;
 }
+
+
+
