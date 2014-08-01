@@ -3,6 +3,13 @@
 // Elementos exclusivos de la interfase DDAM.
 // -----------------------------------------------------------------------------
 
+/* imagenes */
+
+img {
+    border: 0 none;
+    height: auto;
+    width: 100%;
+}
 
 /* 
    ddam-fields (p-collapsible-content)
@@ -172,6 +179,19 @@
    ========================
 */
 
+/* titulos de secciones home */
+
+.front section > h1,
+.front section > h2 {
+    background-color: @brand-primary;
+    color: #FFFFFF;
+    font-size: 19px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 !important;
+    padding: 8px 11px !important;
+}
+
 // slideshow margins
 
 header#page-header {
@@ -186,6 +206,36 @@ header#page-header {
 
 /* -- interior --*/
 
+@title-pad-novedad: 15px;
+
+.novedad-title() {
+   display: inline;
+   background-color: @gray-darker;
+   box-shadow: @title-pad-novedad 0 0 @gray-darker, -@title-pad-novedad 0 0 @gray-darker;
+   a, span {
+      display: inline;
+      background-color: rgba(0, 0, 0, 0);
+      color: #FFFFFF;
+      font-style: italic;
+      font-weight: normal;
+   }
+}
+
+.novedad-date {
+    background-color: fade(#ffffff, 60%);
+    color: @gray-dark;
+    font-family: @font-family-base;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 6px 12px;
+    position: absolute;
+    top: 6%;
+    b {
+       text-transform: uppercase;
+       font-weight: normal;
+    }
+}
+
 .backgnd-img-well {
    > .view-content .views-row > .node {
       position:relative;
@@ -197,34 +247,27 @@ header#page-header {
          height: auto;
       }
 
-      @line-padding: 15px;
+
       h2 {
-          bottom: 32%;
-          margin: 0;
-          padding: 0 @line-padding 10px;
-          position: absolute;
-          right: 0;
-          text-align: right;
-          width: 33%;
+         bottom: 32%;
+         margin: 0;
+         padding: 0 @title-pad-novedad 10px;
+         position: absolute;
+         right: 0;
+         text-align: right;
+         width: 33%;
 
-          span {
-             background-color: @gray-darker;
-             display: inline;
-             font-size: 25px;
-             line-height: 57px;
-             padding: 5px 0 9px;
-             /* http://css-tricks.com/multi-line-padded-text */
-             box-shadow: @line-padding 0 0 @gray-darker, -@line-padding 0 0 @gray-darker;
+         span {
+            .novedad-title;
 
-             a {
-                background-color: rgba(0, 0, 0, 0);
-                color: #FFFFFF;
-                display: inline;
-                font-size: 25px;
-                font-style: italic;
-                font-weight: normal;
-             }
-          }
+            font-size: 25px;
+            line-height: 57px;
+            padding: 5px 0 9px;
+            /* http://css-tricks.com/multi-line-padded-text */
+            a {
+               font-size: 25px;
+            }
+         }
       }
 
       .fields-wrapper{
@@ -250,9 +293,9 @@ header#page-header {
 
       h2 { 
          span {
+            .novedad-title;
+
             font-size: 32px;
-            font-style: italic;
-            font-weight: normal;
             line-height: 70px;
             padding: 10px 0;
             a {
@@ -261,9 +304,35 @@ header#page-header {
          }
       }
    }
+}/* #views_slideshow_cycle_main_novedades-slideshow */
+
+
+.node-novedad {
+   .top-node-wrapper {
+      margin-bottom: 45px;
+      position:relative;
+      h1, h2 {
+         position: absolute;
+         bottom: 45px;
+         left: 0;
+         margin: 0;
+         padding: 0 @title-pad-novedad;
+         text-align: left;
+         width: 50%;
+
+         span {
+            .novedad-title;
+
+            font-size: 32px;
+            line-height: 70px;
+            padding: 10px 0;
+            /* http://css-tricks.com/multi-line-padded-text */
+            a {
+               font-size: 32px;
+            }
+         }
+      }
+   }
 }
-
-
-/* #views_slideshow_cycle_main_novedades-slideshow */
 
 
