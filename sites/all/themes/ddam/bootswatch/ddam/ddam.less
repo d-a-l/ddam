@@ -11,6 +11,9 @@ img {
     width: 100%;
 }
 
+@height-gutter: 36px;
+
+
 /* 
    ddam-fields (p-collapsible-content)
    ===================================
@@ -181,27 +184,33 @@ img {
 
 /* titulos de secciones home */
 
-.front section > h1,
-.front section > h2 {
+.block-title {
     background-color: @brand-primary;
+    font-family: @font-family-base !important;
     color: #FFFFFF;
     font-size: 19px;
     letter-spacing: 0;
     line-height: 22px;
-    margin: 0 !important;
+    margin: 0;
+    margin-bottom: @height-gutter;
     padding: 8px 11px !important;
+}
+
+.front section > h1,
+.front section > h2 {
+   .block-title;
 }
 
 // slideshow margins
 
 header#page-header {
-   margin: 0 0 40px;
+   margin-bottom: @height-gutter;
 }
 
 // novedad margins
 
 .view-display-id-novedades_portada .views-row > .node {
-   margin: 40px 0;
+   margin-bottom: @height-gutter;
 }
 
 /* -- interior --*/
@@ -335,4 +344,8 @@ header#page-header {
    }
 }
 
+/* box teaser */
+
+.field-name-field-relacionados .field-label {
+}
 

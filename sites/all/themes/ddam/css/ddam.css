@@ -40,4 +40,112 @@
 }
 
 
+/* box teaser */
 
+.box-teaser {
+   font-size: 15px;
+   font-family: helvetica;
+   margin-bottom: 36px; /* @height-gutter */
+}
+
+.box-teaser .box-teaser-wrapper {
+   background-color: #a7ac93;
+   height: 232px;
+   padding: 20px 23px;
+}
+
+/* default */
+
+.box-teaser .field.field-name-field-imagen {
+   width: 90px;
+   float: left;
+   margin: 0 23px 15px 0;
+}
+
+.box-teaser .box-teaser-body-top-wrapper {
+   display: inline-block;
+}
+
+.box-teaser .box-teaser-body-top-wrapper > div:first-child {
+   margin-top: -3px;
+}
+
+.box-teaser .box-teaser-body-top-wrapper .node-type {
+   font-size: 12px;
+   text-transform: uppercase;
+   font-weight: bold;
+}
+
+.box-teaser .box-teaser-body-top-wrapper h2, 
+.box-teaser .box-teaser-body-top-wrapper h3 {
+   font-size: 16px;
+   font-family: helvetica;
+   margin: 2px 0;
+}
+
+.box-teaser .box-teaser-body-bottom-wrapper {
+   clear: left;
+}
+
+/* fotografia */
+
+.box-teaser.node-fotografia .field.field-name-field-imagen {
+   margin: 0;
+   width: 100%;
+   float: none;
+}
+
+.box-teaser.node-fotografia .box-teaser-body-top-wrapper {
+   margin: 12px 0 0 0;
+   padding-left: 0;
+}
+
+.box-teaser.node-fotografia .box-teaser-body-top-wrapper > div:first-child {
+   margin: 0 0 -1px;
+}
+
+.box-teaser.node-fotografia .box-teaser-body-top-wrapper .node-type {
+}
+
+.box-teaser.node-fotografia .box-teaser-body-top-wrapper h2, 
+.box-teaser.node-fotografia .box-teaser-body-top-wrapper h3 {
+}
+
+.box-teaser.node-fotografia .box-teaser-body-bottom-wrapper {
+   clear: none;
+   margin-top: 0;
+}
+
+/* pub periodica (coleccion) */
+
+.box-teaser.node-publicacion-periodica .field.field-name-field-imagen {
+   display: none;
+}
+
+.box-teaser.node-publicacion-periodica .node-type-icon {
+    background-color: #000000;
+    float: left;
+    height: 35px;
+    margin-right: 10px;
+    width: 49px;
+}
+
+.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper {
+   display: block;
+}
+
+.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper > div:first-child {
+   margin-top: 0;
+}
+
+.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper .node-type {
+}
+
+.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper h2, 
+.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper h3 {
+}
+
+.box-teaser.node-publicacion-periodica .box-teaser-body-bottom-wrapper {
+   clear: none;
+   margin-top: 15px;
+}
