@@ -60,7 +60,13 @@
    </div>
 
    <div class="row">
-      <?php print render($content['field_relacionados']); ?>
+      <div class="col-lg-12">
+         <h2 class="block-title">Relacionados: </h2>
+      </div>
+   </div>
+
+   <div class="row">
+         <?php print render($content['field_relacionados']); ?>
    </div>
 
 <?php print render($content['links']); ?>
