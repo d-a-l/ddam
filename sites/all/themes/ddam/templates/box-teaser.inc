@@ -1,4 +1,4 @@
-<div id="node-<?php print $node->nid; ?>" class="box-teaser col-lg-4 <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div id="node-<?php print $node->nid; ?>" class="box-teaser col-xs-4 col-centered col-min <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 <?php print $user_picture; ?>
 
    <div class="box-teaser-wrapper">

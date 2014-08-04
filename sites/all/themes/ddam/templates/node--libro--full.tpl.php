@@ -65,7 +65,7 @@
       </div>
    </div>
 
-   <div class="row">
+   <div class="row row-centered">
          <?php print render($content['field_relacionados']); ?>
    </div>
 

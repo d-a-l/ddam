@@ -60,10 +60,11 @@
    width: 90px;
    float: left;
    margin: 0 23px 15px 0;
+   box-shadow: 6px 6px 20px 0 rgba(50, 50, 50, 0.28);
 }
 
 .box-teaser .box-teaser-body-top-wrapper {
-   display: inline-block;
+   /* display: inline-block; */
 }
 
 .box-teaser .box-teaser-body-top-wrapper > div:first-child {
@@ -123,15 +124,16 @@
 }
 
 .box-teaser.node-publicacion-periodica .node-type-icon {
-    background-color: #000000;
+    background: url('img/icons/publicacion_periodica.png') no-repeat 0px 2px transparent;
     float: left;
-    height: 35px;
+    height: 60px;
     margin-right: 10px;
     width: 49px;
 }
 
 .box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper {
    display: block;
+   min-height: 60px;
 }
 
 .box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper > div:first-child {
@@ -147,5 +149,36 @@
 
 .box-teaser.node-publicacion-periodica .box-teaser-body-bottom-wrapper {
    clear: none;
-   margin-top: 15px;
+   margin-top: 8px;
 }
+
+/* publicacion periodica (ejemplar) */
+
+.box-teaser.node-numero-publicacion-periodica .box-teaser-body-top-wrapper {
+   display: inline-block;
+   width: 50%:
+   /* ToDo: hay un problema en la forma en que se muestran los campos 
+      que hace que como inline el segundo salte por abajo de la imagen
+   */
+}
+
+/* coleccion */
+
+.box-teaser.node-coleccion .node-type-icon {
+    background: url('img/icons/coleccion.png') no-repeat 0 0 transparent;
+    float: left;
+    height: 60px;
+    margin-right: 10px;
+    width: 55px;
+}
+
+.box-teaser.node-coleccion .box-teaser-body-top-wrapper {
+   display: block;
+   min-height: 60px;
+}
+
+.box-teaser.node-coleccion .box-teaser-body-bottom-wrapper {
+   clear: none;
+   margin-top: 8px;
+}
+

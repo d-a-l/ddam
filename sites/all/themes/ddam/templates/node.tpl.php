@@ -80,7 +80,15 @@
  * @ingroup themeable
  */
 ?>
-<!-- <?php print $type; ?> -->
+<?php if ($view_mode == "full"): ?>
+
+   <?php include DRUPAL_ROOT . base_path() . path_to_theme() . "/templates/full.inc"; ?>
+
+<?php elseif ($view_mode == "relacionados"): ?>
+
+   <?php include DRUPAL_ROOT . base_path() . path_to_theme() . "/templates/box-teaser.inc"; ?>
+
+<?php else: ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 <?php print $user_picture; ?>
@@ -110,6 +118,8 @@
 
 <?php print render($content['comments']); ?>
 
+<?php print $type . " ... " . $view_mode; ?>
+
 <?php
   // print '<textarea cols="60" rows="20" style="width: 90%;">';
   // print "computed code test: ".$node->field_isbn['und'][0]['value']."\n";
@@ -118,3 +128,5 @@
 ?>
 
 </div>
+
+<?php endif; ?>
