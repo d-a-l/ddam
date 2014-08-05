@@ -4,14 +4,13 @@
 
    <div class="row">
 
-      <div class="bibliocard col-lg-7 col-lg-push-5">
+      <div class="bibliocard col-lg-12">
          <div class="title-wrapper">
             <div class="icon icon-<?php print $node->type; ?>" ></div>
-            <div class="line autor"><?php print render($content['group_autoria']['field_autor'][0]); ?></div>
+            <div class="line type">Colección</div>
 
             <h1><?php print $node->title; ?></h1>
          </div>
-         <div class="line">
 
          <div class="body">
             <?php print render($content['group_descripcion_obra']['body'][0]); ?>
@@ -23,21 +22,18 @@
 
       </div>
 
-      <div class="left-items col-lg-5 col-lg-pull-7">
-         <div class="well slideshow-imagen">
-            <?php print render($content['field_imagen']); ?>
-         </div>
-         <div class="well actions-tab gray-background">
-            <?php print render($content['easy_social_1']); ?>
-         </div>
+<!--      <div class="">
+         <div class="well actions-tab gray-background"> -->
+            <?php // print render($content['easy_social_1']); ?>
+<!--         </div>
       </div>
+-->
 
    </div>
 
    <div class="row content"<?php print $content_attributes; ?>>
-      <div class="p-collapsible col-lg-12">
-         <div class="p-collapsible-content ddam-fields">
-            <h2><span>Información Detallada</span></h2>
+      <div class="col-lg-12 ddam-fields">
+
 <?php
    // show all fields already been render
    show($content['group_autoria']['field_autor'][0]);
@@ -59,13 +55,13 @@
    hide($content['field_plantilla_libro']); //computed field sin usar por ahora
    print render($content);
 ?>
-         </div>
+
       </div>
    </div>
 
    <div class="row">
       <div class="col-lg-12">
-         <h2 class="block-title">Relacionados: </h2>
+         <h2 class="block-title">Elementos de la colección: </h2>
       </div>
    </div>
 

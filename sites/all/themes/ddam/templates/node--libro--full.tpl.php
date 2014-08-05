@@ -12,15 +12,62 @@
             <h1><?php print $node->title; ?></h1>
          </div>
          <div class="line">
-            <span><?php print $content['group_edicion']['field_lugar_de_publicacion'][0]['#location']['city']; ?></span>, 
-            <?php print render($content['group_edicion']['field_editor'][0]); ?>, 
-            <span class="edicion"><?php print render($content['group_edicion']['field_edicion'][0]); ?>° edición</span>.
+<?php
+
+$line = array();
+$line[] = $content['group_edicion']['field_lugar_de_publicacion'][0]['#location']['city'];
+$line[] = render($content['group_edicion']['field_editor'][0]);
+$line[] = $content['group_edicion']['field_edicion'][0] ? render($content['group_edicion']['field_edicion'][0])."° edición" : "";
+
+$separador = ""; foreach ($line as $word) {
+    if ($word != "") {
+       print $separador . $word;
+       $separador = ", ";
+    }
+}
+print ".";
+
+?>
          </div>
          <div class="line">
-            <?php print render($content['group_descripcion_obra']['field_idioma'][0]); ?>, 
-            <?php print render($content['group_descripcion_fisica']['field_paginas'][0]); ?> Páginas, 
-            <span class="year"><?php print substr($content['group_edicion']['field_fecha_de_publicacion']['#items'][0]['value'], 0, 4); ?></span>.
+<?php
+
+$line = array();
+$line[] = $content['group_descripcion_obra']['field_idioma'][0] ? render($content['group_descripcion_obra']['field_idioma'][0]) : "";
+$line[] = $content['group_descripcion_fisica']['field_paginas'][0] ? render($content['group_descripcion_fisica']['field_paginas'][0]) . " páginas" : '';
+$line[] = $content['group_edicion']['field_fecha_de_publicacion']['#items'][0]['value'] ? substr($content['group_edicion']['field_fecha_de_publicacion']['#items'][0]['value'], 0, 4) : "";
+
+$separador = ""; foreach($line as $word) {
+    if ($word != "") {
+       print $separador . $word;
+       $separador = ", ";
+    }
+}
+print ".";
+
+?>
+            
          </div>
+         <div class="icons-desc">
+<?php
+
+   foreach ($content['group_descripcion_fisica']['field_caracteristicas_fisicas'] as $clave => $el)
+   {
+      if ($clave[0] != "#") {
+         print '<a href="' . $el['#href'] . '" class="icon-' . $el['#options']['entity']->tid . '"><span>' . $el['#title'] . '</span></a> ';
+      }
+   }
+
+?>
+         </div>
+         <div class="body">
+            <?php print render($content['group_descripcion_obra']['body'][0]); ?>
+         </div>
+         <div class="tags">
+            <?php print render($content['group_clasificacion']['field_descriptores']); ?>
+            <?php print render($content['group_clasificacion']['field_etiquetas']); ?>
+         </div>
+
       </div>
 
       <div class="left-items col-lg-5 col-lg-pull-7">
@@ -45,6 +92,10 @@
    show($content['group_edicion']['field_edicion'][0]);
    show($content['group_descripcion_obra']['field_idioma'][0]); 
    show($content['group_descripcion_fisica']['field_paginas'][0]);
+
+   show($content['group_clasificacion']['field_etiquetas']);
+   show($content['group_clasificacion']['field_descriptores']);
+   show($content['group_descripcion_obra']['body'][0]);
 
    // We hide the comments and links now so that we can render them later.
    hide($content['comments']);

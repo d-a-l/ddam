@@ -88,6 +88,10 @@
 
    <?php include DRUPAL_ROOT . base_path() . path_to_theme() . "/templates/box-teaser.inc"; ?>
 
+<?php elseif ($view_mode == "en_coleccion"): ?>
+
+   <?php include DRUPAL_ROOT . base_path() . path_to_theme() . "/templates/box-teaser.inc"; ?>
+
 <?php else: ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
