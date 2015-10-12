@@ -18,7 +18,7 @@ class FieldChain implements SeekableIterator {
   /**
    * Magic post-unserialization callback. Provides every field in the chain
    * with a reference to its parent (if any) and child (if any), effectively
-   * turning $this->chain into a doubly linked list.
+   * turning the chain into a doubly linked list.
    */
   public function __wakeup() {
     foreach ($this->chain as $field) {
@@ -29,6 +29,11 @@ class FieldChain implements SeekableIterator {
     }
   }
 
+  /**
+   * Represents this chain as a machine-readable string, separating the fields
+   * with a T_PAAMAYIM_NEKUDOTAYIM (or, as we call it on planet Earth, a
+   * double colon).
+   */
   public function __toString() {
     $key = array();
 
@@ -41,8 +46,8 @@ class FieldChain implements SeekableIterator {
 
   /**
    * Prepends a field instance to this chain. If $completed is passed, we'll
-   * try to find the parents of the field instance and recurse upwards, building
-   * a tree of 'paths' to the field instance.
+   * try to find the parents of the instance and recurse upwards, building
+   * a tree of "routes" to the instance.
    */
   public function addField(FieldInstance $field, array &$completed = NULL) {
     array_unshift($this->chain, $field);

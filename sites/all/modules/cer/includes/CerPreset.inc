@@ -28,7 +28,7 @@ class CerPreset extends Entity {
   /**
    * @var integer
    * The exportable status of this preset.
-   */  
+   */
   public $status = 0x01;  // ENTITY_CUSTOM
 
   /**
@@ -49,20 +49,7 @@ class CerPreset extends Entity {
    * Overrides Entity::label().
    */
   public function label() {
-    return t('@left !operator @right', $this->labelVariables());
-  }
-
-  public function labelVariables() {
-    $fields = field_attach_view('cer', $this, 'default');
-
-    return array(
-      '@left' =>
-        render($fields['cer_left'][0]),
-      '@right' =>
-        render($fields['cer_right'][0]),
-      '!operator' =>
-        $this->wrapper->cer_bidirectional->value() ? '<>' : '>',
-    );
+    return isset($this->label_variables) ? t('@left !operator @right', $this->label_variables) : $this->defaultLabel();
   }
 
   /**

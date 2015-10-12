@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Contains the controller class for CER's UI (i.e., preset management pages),
+ * used by Entity API.
+ */
+
 class CerUIController extends EntityDefaultUIController {
 
   public function hook_menu() {
@@ -44,51 +49,122 @@ class CerUIController extends EntityDefaultUIController {
   public function operationForm($form, &$form_state, $entity, $action) {
     switch ($action) {
       case 'delete':
-        return confirm_form($form, t('Are you sure you want to delete this preset?'), $this->path, t('@left will no longer synchronize with @right.', $entity->labelVariables()));
+        return confirm_form($form, t('Are you sure you want to delete this preset?'), $this->path, t('@left will no longer synchronize with @right.', $entity->label_variables));
 
       default:
         return parent::operationForm($form, $form_state, $entity, $action);
     }
   }
 
-  protected function overviewTableHeaders($conditions, $rows, $additional_header = array()) {
-    $header = array(
-      t('Enabled'),
-      t('Left Field'),
-      t('Right Field'),
-      t('Bidirectional'),
-      t('Status'),
-      t('Operations'),
+  public function overviewForm($form, &$form_state) {
+    $form = parent::overviewForm($form, $form_state);
+
+    $form['actions'] = array(
+      'update' => array(
+        '#type' => 'submit',
+        '#value' => t('Save changes'),
+      ),
+      '#type' => 'actions',
     );
 
-    return array_merge($header, $additional_header);
+    return $form;
+  }
+
+  public function overviewFormSubmit($form, &$form_state) {
+    foreach ($form_state['values']['table'] as $id => $values) {
+      $preset = entity_object_load($id, $this->entityType);
+      
+      $preset->wrapper->cer_enabled->set($values['cer_enabled'][LANGUAGE_NONE][0]['value']);
+      $preset->wrapper->cer_bidirectional->set($values['cer_bidirectional'][LANGUAGE_NONE][0]['value']);
+      $preset->wrapper->cer_weight->set($values['cer_weight'][LANGUAGE_NONE][0]['value']);
+
+      $preset->save();
+    }
+
+    drupal_set_message(t('The changes have been saved.'));
+  }
+
+  public function overviewTable($conditions = array()) {
+    $render = array(
+      '#header' => array(
+        t('Left Field'),
+        t('Right Field'),
+        t('Status'),
+        t('Enabled'),
+        t('Bidirectional'),
+        t('Weight'),
+        t('Operations'),
+      ),
+      '#tabledrag' => array(
+        array(
+          'action' => 'order',
+          'relationship' => 'sibling',
+          'group' => 'cer-weight',
+        ),
+      ),
+      '#empty' => t('None.'),
+      '#type' => 'table',
+    );
+
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', $this->entityType);
+
+    // Add all conditions to query.
+    foreach ($conditions as $key => $value) {
+      $query->propertyCondition($key, $value);
+    }
+
+    if ($this->overviewPagerLimit) {
+      $query->pager($this->overviewPagerLimit);
+    }
+    
+    $query->fieldOrderBy('cer_weight', 'value');
+
+    $results = $query->execute();
+    $entities = isset($results['cer']) ? entity_load('cer', array_keys($results['cer'])) : array();
+
+    foreach ($entities as $entity) {
+      $render[$entity->pid] = $this->overviewTableRow($conditions, $entity->pid, $entity);
+    }
+
+    return $render;
   }
 
   protected function overviewTableRow($conditions, $id, $entity, $additional_cols = array()) {
-    $fields = field_attach_view($this->entityType, $entity, 'default');
+    $render_fields = field_attach_view($this->entityType, $entity, 'default');
 
-    $fields['cer_left']['#label_display'] = 'inline';
-    $fields['cer_left']['#title'] = $entity->wrapper->cer_left->chain->value()->end()->fieldTypeLabel;
+    $render_fields['cer_left']['#label_display'] = 'inline';
+    $render_fields['cer_left']['#title'] = $entity->wrapper->cer_left->chain->value()->end()->fieldTypeLabel;
+    $row['cer_left'] = $render_fields['cer_left'];
 
-    $fields['cer_right']['#label_display'] = 'inline';
-    $fields['cer_right']['#title'] = $entity->wrapper->cer_right->chain->value()->end()->fieldTypeLabel;
+    $render_fields['cer_right']['#label_display'] = 'inline';
+    $render_fields['cer_right']['#title'] = $entity->wrapper->cer_right->chain->value()->end()->fieldTypeLabel;
+    $row['cer_right'] = $render_fields['cer_right'];
 
-    $row[] = $entity->wrapper->cer_enabled->value() ? '&#10003;' : '';
-    $row[] = render($fields['cer_left']);
-    $row[] = render($fields['cer_right']);
-    $row[] = $entity->wrapper->cer_bidirectional->value() ? '&#10003;' : '';
-    $row[] = array(
-      'data' => array(
-        '#theme' => 'entity_status',
-        '#status' => $entity->{$this->statusKey},
-      ),
+    $row['status'] = array(
+      '#theme' => 'entity_status',
+      '#status' => $entity->status,
     );
 
+    $form_fields = $form_state = array();
+    field_attach_form($this->entityType, $entity, $form_fields, $form_state);
+
+    unset($form_fields['cer_enabled'][LANGUAGE_NONE]['#title']);
+    $row['cer_enabled'] = $form_fields['cer_enabled'];
+
+    unset($form_fields['cer_bidirectional'][LANGUAGE_NONE]['#title']);
+    $row['cer_bidirectional'] = $form_fields['cer_bidirectional'];
+
+    unset($form_fields['cer_weight'][LANGUAGE_NONE]['#title']);
+    $form_fields['cer_weight'][LANGUAGE_NONE]['#attributes']['class'][] = 'cer-weight';
+    $row['cer_weight'] = $form_fields['cer_weight'];
+
     // Add in any passed additional cols.
-    foreach ($additional_cols as $col) {
-      $row[] = $col;
+    foreach ($additional_cols as $key => $col) {
+      $row[$key] = $col;
     }
 
+    // I like drop buttons more than an inline set of links.
     $links = array(
       'toggle' => array(
         'title' => $entity->wrapper->cer_enabled->value() ? t('disable') : t('enable'),
@@ -129,12 +205,12 @@ class CerUIController extends EntityDefaultUIController {
       'href' => "{$this->path}/manage/{$id}/export",
     );
 
-    $row[] = array(
-      'data' => array(
-        '#theme' => 'links__ctools_dropbutton',
-        '#links' => $links,
-      ),
+    $row['operations'] = array(
+      '#theme' => 'links__ctools_dropbutton',
+      '#links' => $links,
     );
+
+    $row['#attributes']['class'][] = 'draggable';
 
     return $row;
   }

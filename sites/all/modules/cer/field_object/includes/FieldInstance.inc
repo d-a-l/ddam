@@ -2,25 +2,66 @@
 
 class FieldInstance {
 
+  /**
+   * @var string
+   * The instance's entity type.
+   */
   public $entityType;
 
+  /**
+   * @var string
+   * The instance bundle.
+   */
   public $bundle;
 
+  /**
+   * @var string
+   * The field's machine name.
+   */
   public $name;
 
+  /**
+   * @var boolean
+   * Whether or not this instance's entity type supports bundles.
+   */
   public $isBundleable;
 
+  /**
+   * @var string
+   * The human-readable label of the instance's entity type.
+   */
   public $entityTypeLabel;
 
+  /**
+   * @var string
+   * The human-readable label of the instance's bundle.
+   */
   public $bundleLabel;
 
+  /**
+   * @var integer
+   * The cardinality (maximum values) the field supports, or
+   * FIELD_CARDINALITY_UNLIMITED.
+   */
   public $cardinality;
 
+  /**
+   * @var string
+   * The instance's label.
+   */
   public $label;
 
-  public $parent;
+  /**
+   * @var FieldInstance
+   * The parent of this instance, if any.
+   */
+  protected $parent;
 
-  public $child;
+  /**
+   * @var FieldInstance
+   * The child of this instance, if any.
+   */
+  protected $child;
 
   public function __construct($entity_type, $bundle, $field_name) {
     $this->entityType = $entity_type;

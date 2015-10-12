@@ -8,7 +8,7 @@ function cer_entity_info() {
     'cer' => array(
       'label' => t('CER Preset'),
       'entity class' => 'CerPreset',
-      'controller class' => 'EntityAPIControllerExportable',
+      'controller class' => 'CerPresetController',
       'base table' => 'cer_preset',
       'label callback' => 'entity_class_label',
       'module' => 'cer',
@@ -16,6 +16,7 @@ function cer_entity_info() {
       'entity keys' => array(
         'id' => 'pid',
         'name' => 'identifier', // This is the automatically generated export key.
+        'label' => 'identifier',  // The identifier will be the default label.
       ),
       'admin ui' => array(
         'path' => 'admin/config/content/cer',
@@ -187,42 +188,9 @@ function cer_processing_entity($op, $entity, $entity_type = NULL, array &$contex
   }
 
   if ($entity instanceof EntityDrupalWrapper) {
-    $lineage = $entity->cer->lineage->value();
+    $finder = new CerPresetFinder($entity);
 
-    // EntityFieldQuery can't handle OR conditions or nested query logic,
-    // so we have to do two separate queries to find all applicable presets,
-    // then combine the results.
-    $baseQuery = new EntityFieldQuery();
-    $baseQuery->entityCondition('entity_type', 'cer');
-    $baseQuery->fieldCondition('cer_enabled', 'value', TRUE);
-
-    // Allow modules to alter these queries if they need to (CER Entity Settings
-    // being a likely use case).
-    $baseQuery->addTag('cer_presets');
-    $baseQuery->addMetaData('entity', $entity);
-    $baseQuery->addMetaData('operation', $op);
-
-    $query = clone $baseQuery;
-    $query->fieldCondition('cer_left', 'path', $lineage, 'STARTS_WITH');
-    $result = $query->execute();
-    if (isset($result['cer'])) {
-      $presets = entity_load('cer', array_keys($result['cer']));
-    }
-    else {
-      $presets = array();
-    }
-
-    $query = clone $baseQuery;
-    $query->fieldCondition('cer_right', 'path', $lineage, 'STARTS_WITH');
-    $query->fieldCondition('cer_bidirectional', 'value', TRUE);
-    $result = $query->execute();
-    if (isset($result['cer'])) {
-      foreach(entity_load('cer', array_keys($result['cer'])) as $preset) {
-        $presets[] = $preset->invert();
-      }
-    }
-
-    foreach ($presets as $preset) {
+    foreach ($finder->execute() as $preset) {
       $handler = new CerPresetHandler($preset, $entity);
       $handler->$op();
     }
@@ -402,3 +370,7 @@ function cer_entity_property_info_alter(array &$info) {
 
 // Include property callback functions
 module_load_include('inc', 'cer', 'cer.properties');
+
+if (module_exists('field_collection')) {
+  module_load_include('inc', 'cer', 'cer.properties.field_collection');
+}

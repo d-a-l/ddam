@@ -97,7 +97,7 @@ function theme_field_object_label(array $variables) {
 
   $output = '';
 
-  if ($variables['field']['type'] !== 'field_collection') {
+  if ($instance['entity_type'] != 'field_collection_item') {
     $entity_type = entity_get_info($instance['entity_type']);
     $output = $entity_type['label'] . ' » ';
 

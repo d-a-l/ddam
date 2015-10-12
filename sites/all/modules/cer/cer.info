@@ -8,6 +8,7 @@ dependencies[] = ctools
 dependencies[] = list
 dependencies[] = entity
 dependencies[] = field_object
+dependencies[] = table_element
 
 files[] = includes/CerEndPointIterator.inc
 files[] = includes/CerEntityContainerInterface.inc
@@ -16,7 +17,9 @@ files[] = includes/CerFieldChain.inc
 files[] = includes/CerFieldChainHandler.inc
 files[] = includes/CerFieldHandler.inc
 files[] = includes/CerPreset.inc
+files[] = includes/CerPresetController.inc
 files[] = includes/CerPresetFeaturesController.inc
+files[] = includes/CerPresetFinder.inc
 files[] = includes/CerPresetHandler.inc
 files[] = includes/CerUIController.inc
 files[] = includes/fields/entity_reference.inc
@@ -25,9 +28,9 @@ files[] = includes/fields/node_reference.inc
 files[] = includes/fields/taxonomy_term_reference.inc
 files[] = includes/fields/user_reference.inc
 
-; Information added by Drupal.org packaging script on 2014-07-05
-version = "7.x-3.0-alpha5+37-dev"
+; Information added by Drupal.org packaging script on 2014-08-13
+version = "7.x-3.0-alpha7"
 core = "7.x"
 project = "cer"
-datestamp = "1404571730"
+datestamp = "1407974153"
 

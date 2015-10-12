@@ -1,0 +1,354 @@
+//
+// DDAM
+// Elementos exclusivos de la interfase DDAM.
+// -----------------------------------------------------------------------------
+
+/* imagenes */
+
+img {
+    border: 0 none;
+    height: auto;
+    width: 100%;
+}
+
+@height-gutter: 36px;
+
+
+/* 
+   ddam-fields (p-collapsible-content)
+   ===================================
+*/
+
+.ddam-fields {
+
+   > h2, > h3,
+   > .required-fields > h2,
+   > .required-fields > h3,
+   > .field,
+   > .required-fields > .field {
+      margin: 0; padding: 0 10px;
+   }
+
+   > h2, > h3,
+   > .required-fields > h2,
+   > .required-fields > h3 {
+      color: white;
+      margin-top: 6px;
+      + div.field {
+         padding-top: 6px;
+      }
+   }
+
+   > h2,
+   > .required-fields > h2 {
+      background-color: @brand-primary;
+      font-size: 23px;
+      line-height: 38px;
+   }
+
+   > h3,
+   > .required-fields > h3 {
+      background-color: @gray;
+      font-size: 20px;
+      line-height: 26px;
+      font-style: italic;
+      font-weight: normal;
+      min-height: 32px;
+      > span {
+        display: inline-block;
+        margin-top: 4px;
+      }
+   }
+
+   > .field,
+    > .required-fields > .field {
+      line-height: 24px;
+      border-top: 1px solid @gray;
+      min-height: 27px;
+   }
+
+   .field.field-name-field-autor,
+   .field-name-field-titulo {
+       font-size: 20px;
+       line-height: 27px;
+       .field-items {
+         margin-top: -1px;
+       }
+   }
+
+   .field-label {
+       font-size: 13px;
+       font-weight: normal;
+       line-height: 16px;
+       min-height: 27px;
+       padding-right: 6px;
+       padding-top: 6px;
+       text-transform: uppercase;
+       width: 190px;
+   }
+
+   .field-items {
+       max-width: 700px;
+       margin-bottom: 2px;
+       p, p:last-child {
+         margin-bottom: 6px;
+       }
+   }
+}
+
+/*
+   top ddam "bibliocard"
+   =====================
+*/
+
+.bibliocard {
+   .title-wrapper {
+      margin: -8px 0 24px;
+      + div {
+        clear: left;
+      }
+   }
+   .icon {
+      width: 70px; height: 90px;
+      float: left;
+      margin: 4px 18px 0 0;
+   }
+   h1 {
+       font-size: 33px;
+       font-style: italic;
+       font-weight: normal;
+       letter-spacing: 0;
+       margin: 4px 0 0;
+   }
+   .line {
+      font-size: 21px;
+   }
+   .line.autor {
+     font-size: 30px;
+     font-weight: normal;
+   }
+   .year, 
+   .edicion {
+      font-weight: bold;
+   }
+}
+
+/* 
+   top ddam slideshow
+   ==================
+*/
+
+.gray-area {
+    background-color: @gray-more-lighter; // relacionados
+}
+
+.slideshow-imagen {
+
+   padding: 40px 40px 14px;
+   background-color: @gray-more-lighter;
+
+   // .field-slideshow-image 
+   // .field-slideshow-slide 
+   // .field-slideshow-wrapper
+   // .field-slideshow
+   .field-slideshow {
+      overflow: inherit !important;
+   }
+   .field-slideshow-image  {
+      // background-color: @gray-dark;
+       -webkit-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
+          -moz-box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
+               box-shadow: 7px 7px 25px 0px rgba(50, 50, 50, 0.28);
+   }
+   .field-slideshow-pager {
+     margin-top: 14px;
+   }
+   .field-slideshow-pager a {
+       background-color: #FFFFFF;
+       font-size: 13px;
+       margin: 0 7px 0 0;
+       padding: 1px 6px;
+   }
+   .field-slideshow-pager a:hover {
+       text-decoration: none;
+       background-color: @link-color;
+       color: white;
+   }
+   .field-slideshow-pager a.activeSlide {
+       background-color: @gray-lighter;
+       text-decoration: none;  
+   }
+}
+
+/* 
+   front novedades & slider
+   ========================
+*/
+
+/* titulos de secciones home */
+
+.block-title {
+    background-color: @brand-primary;
+    font-family: @font-family-base !important;
+    color: #FFFFFF;
+    font-size: 19px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0;
+    //margin-bottom: @height-gutter;
+    padding: 8px 11px !important;
+}
+
+.front section > h1,
+.front section > h2 {
+   .block-title;
+}
+
+// slideshow margins
+
+header#page-header {
+   margin-bottom: @height-gutter;
+}
+
+// novedad margins
+
+.view-display-id-novedades_portada .views-row > .node {
+   margin-bottom: @height-gutter;
+}
+
+/* -- interior --*/
+
+@title-pad-novedad: 15px;
+
+.novedad-title() {
+   display: inline;
+   background-color: @gray-darker;
+   box-shadow: @title-pad-novedad 0 0 @gray-darker, -@title-pad-novedad 0 0 @gray-darker;
+   a, span {
+      display: inline;
+      background-color: rgba(0, 0, 0, 0);
+      color: #FFFFFF;
+      font-style: italic;
+      font-weight: normal;
+   }
+}
+
+.novedad-date {
+    background-color: fade(#ffffff, 60%);
+    color: @gray-dark;
+    font-family: @font-family-base;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 6px 12px;
+    position: absolute;
+    top: 6%;
+    b {
+       text-transform: uppercase;
+       font-weight: normal;
+    }
+}
+
+.backgnd-img-well {
+   > .view-content .views-row > .node {
+      position:relative;
+   }
+
+   > .view-content .views-row > .node {
+      img {
+         width: 100%;
+         height: auto;
+      }
+
+
+      h2 {
+         bottom: 32%;
+         margin: 0;
+         padding: 0 @title-pad-novedad 10px;
+         position: absolute;
+         right: 0;
+         text-align: right;
+         width: 33%;
+
+         span {
+            .novedad-title;
+
+            font-size: 25px;
+            line-height: 57px;
+            padding: 5px 0 9px;
+            /* http://css-tricks.com/multi-line-padded-text */
+            a {
+               font-size: 25px;
+            }
+         }
+      }
+
+      .fields-wrapper{
+          background: fade(@brand-primary, 60%);
+          height: 25%;
+          overflow: hidden;
+          padding: 7px 18px;
+          position: absolute;
+          right: 0;
+          top: 67%;
+          width: 40%;
+          color:white;
+          line-height: 1.25em;
+      }
+   } 
+}
+
+#block-views-novedades-slideshow  {
+   .view-content .views-row > .node {
+      img {
+         max-width: 910px;
+      }
+
+      h2 { 
+         span {
+            .novedad-title;
+
+            font-size: 32px;
+            line-height: 70px;
+            padding: 10px 0;
+            a {
+                font-size: 32px;
+            }
+         }
+      }
+   }
+}/* #views_slideshow_cycle_main_novedades-slideshow */
+
+
+.node-novedad {
+   .top-node-wrapper {
+      margin-bottom: 45px;
+      position:relative;
+      h1, h2 {
+         position: absolute;
+         bottom: 45px;
+         left: 0;
+         margin: 0;
+         padding: 0 @title-pad-novedad;
+         text-align: left;
+         width: 50%;
+
+         span {
+            .novedad-title;
+
+            font-size: 32px;
+            line-height: 70px;
+            padding: 10px 0;
+            /* http://css-tricks.com/multi-line-padded-text */
+            a {
+               font-size: 32px;
+            }
+         }
+      }
+   }
+}
+
+/* box teaser */
+
+.field-name-field-relacionados .field-label {
+}
+

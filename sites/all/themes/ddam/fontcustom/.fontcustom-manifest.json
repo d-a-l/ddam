@@ -1,0 +1,142 @@
+{
+  "checksum": {
+    "previous": "1b0da586e1f6c2a0846d05a25bc492251e1574ef0c321cc2ac29c7f8fda4e83d",
+    "current": "1b0da586e1f6c2a0846d05a25bc492251e1574ef0c321cc2ac29c7f8fda4e83d"
+  },
+  "fonts": [
+    "fontcustom/fontcustom_1b0da586e1f6c2a0846d05a25bc49225.ttf",
+    "fontcustom/fontcustom_1b0da586e1f6c2a0846d05a25bc49225.svg",
+    "fontcustom/fontcustom_1b0da586e1f6c2a0846d05a25bc49225.woff",
+    "fontcustom/fontcustom_1b0da586e1f6c2a0846d05a25bc49225.eot"
+  ],
+  "glyphs": {
+    "action_add": {
+      "codepoint": 61696,
+      "source": "./svg/action_add.svg"
+    },
+    "action_download": {
+      "codepoint": 61697,
+      "source": "./svg/action_download.svg"
+    },
+    "action_next": {
+      "codepoint": 61698,
+      "source": "./svg/action_next.svg"
+    },
+    "action_previous": {
+      "codepoint": 61699,
+      "source": "./svg/action_previous.svg"
+    },
+    "action_search": {
+      "codepoint": 61700,
+      "source": "./svg/action_search.svg"
+    },
+    "book": {
+      "codepoint": 61701,
+      "source": "./svg/book.svg"
+    },
+    "brand": {
+      "codepoint": 61702,
+      "source": "./svg/brand.svg"
+    },
+    "brochure": {
+      "codepoint": 61703,
+      "source": "./svg/brochure.svg"
+    },
+    "collection": {
+      "codepoint": 61704,
+      "source": "./svg/collection.svg"
+    },
+    "facebook": {
+      "codepoint": 61705,
+      "source": "./svg/facebook.svg"
+    },
+    "format_djvu": {
+      "codepoint": 61706,
+      "source": "./svg/format_djvu.svg"
+    },
+    "format_epub": {
+      "codepoint": 61707,
+      "source": "./svg/format_epub.svg"
+    },
+    "format_pdf": {
+      "codepoint": 61708,
+      "source": "./svg/format_pdf.svg"
+    },
+    "format_txt": {
+      "codepoint": 61709,
+      "source": "./svg/format_txt.svg"
+    },
+    "institution": {
+      "codepoint": 61710,
+      "source": "./svg/institution.svg"
+    },
+    "magazine": {
+      "codepoint": 61711,
+      "source": "./svg/magazine.svg"
+    },
+    "magazine-collection": {
+      "codepoint": 61712,
+      "source": "./svg/magazine-collection.svg"
+    },
+    "person": {
+      "codepoint": 61713,
+      "source": "./svg/person.svg"
+    },
+    "photograph": {
+      "codepoint": 61714,
+      "source": "./svg/photograph.svg"
+    },
+    "star": {
+      "codepoint": 61715,
+      "source": "./svg/star.svg"
+    },
+    "twitter": {
+      "codepoint": 61716,
+      "source": "./svg/twitter.svg"
+    },
+    "with_images": {
+      "codepoint": 61717,
+      "source": "./svg/with_images.svg"
+    },
+    "with_maps": {
+      "codepoint": 61718,
+      "source": "./svg/with_maps.svg"
+    },
+    "with_photographs": {
+      "codepoint": 61719,
+      "source": "./svg/with_photographs.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": false,
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "fontcustom",
+    "force": false,
+    "input": {
+      "templates": "./svg/",
+      "vectors": "./svg/"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "fontcustom",
+      "fonts": "fontcustom",
+      "preview": "fontcustom"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "fontcustom/fontcustom.css",
+    "fontcustom/fontcustom-preview.html"
+  ]
+}

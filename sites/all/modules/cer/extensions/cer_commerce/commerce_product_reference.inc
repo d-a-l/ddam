@@ -7,10 +7,16 @@
  
 class CerCommerceProductReferenceField extends CerField {
 
+  /**
+   * Implements CerField::getTargetType().
+   */
   public function getTargetType() {
     return 'commerce_product';
   }
 
+  /**
+   * Overrides CerField::getTargetBundles().
+   */
   public function getTargetBundles() {
     // Product reference fields store their referenceable types by instance
     // instead of by field, so the $this->settings variable we inherit

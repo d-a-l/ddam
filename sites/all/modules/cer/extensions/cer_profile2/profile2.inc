@@ -9,11 +9,6 @@
 
 class CerProfile2Field extends CerField implements CerEntityContainerInterface {
 
-  /**
-   * A user account can only have one profile of this type.
-   */
-  protected $cardinality = 1;
-
   protected $profileType;
 
   /**
@@ -30,6 +25,9 @@ class CerProfile2Field extends CerField implements CerEntityContainerInterface {
     $this->isBundleable = (boolean) $info['entity keys']['bundle'];
     $this->entityTypeLabel = $info['label'];
     $this->bundleLabel = $info['bundles'][$this->bundle]['label'];
+    // An account can only have one profile of this type.
+    $this->cardinality = 1;
+    $this->fieldTypeLabel = t('Profile');
 
     // Load the Profile2 type information
     $this->profileType = profile2_get_types(subStr($this->name, 8));

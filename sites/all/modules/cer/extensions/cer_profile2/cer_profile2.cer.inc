@@ -11,7 +11,7 @@ function cer_profile2_cer_fields() {
     // Profiles can only be attached to user accounts.
     $fields["user:user:profile_{$profile_type}"]['class'] = 'CerProfile2Field';
   }
-  
+
   return $fields;
 }
 

@@ -1,50 +1,37 @@
 <!-- <?php print $type; ?> -->
 
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-<?php /* print $user_picture; */ ?>
-
-   <div class="top-node-wrapper">
-      <?php /* print render($title_prefix); */ ?>
-      <h1<?php print $title_attributes; ?>><span><span><?php print $node->title; ?></span></span></h1>
-      <?php /* print render($title_suffix); */ ?>
-
-      <?php 
-         print render($content['field_imagen']); 
-      ?>
-
-   </div>
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> full clearfix"<?php print $attributes; ?>>
 
    <div class="row">
 
-      <div class="col-lg-3">
-         <div class="content"<?php print $content_attributes; ?>>
-          <?php
-            // We hide the comments and links now so that we can render them later.
-            /* hide($content['field-imagen']); */
-            hide($content['comments']);
-            hide($content['links']);
-            hide($content['body']);
-            print render($content);
-          ?>
+      <div class="col-md-12"><h3 class="volanta-title"><?php print render($content['field_volanta']); ?></h3></div>
+
+      <div class="col-md-3 col-md-push-9 col-lateral">
+
+         <div class="novedad-date">
+             <span class="day"><?php print format_date($node->created, 'custom', 'd'); ?></span>
+             <span class="mes"><?php print format_date($node->created, 'custom', 'M'); ?></span>
          </div>
+
+         <?php print render($content['group_etiquetas']); ?>      
+
+         <?php include DRUPAL_ROOT . base_path() . path_to_theme() . "/templates/actions-tab.inc"; ?>
+
       </div>
 
-      <div class="col-lg-9">
-
-          <?php if ($display_submitted): ?>
-            <div class="submitted">
-            <?php print $submitted; ?>
-            </div>
+      <div class="col-md-9 col-md-pull-3">
+      
+          <?php if($img = render($content['field_imagen'])): ?>
+              <?php print $img; ?>
+          <?php else: ?>
+              <div class="novedad-default-img"></div>
           <?php endif; ?>
 
-          <?php
-            show($content['body']);
-            print render($content['body']);
-          ?>
 
-         <?php print render($content['links']); ?>
+          <?php print render($content['body']); ?>
 
-         <?php print render($content['comments']); ?>
+          <?php print render($content['links']); ?>
+          <?php print render($content['comments']); ?>
 
       </div>
 

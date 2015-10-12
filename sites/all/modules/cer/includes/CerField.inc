@@ -27,7 +27,7 @@ abstract class CerField extends FieldInstance {
   /**
    * @var array
    */
-  protected $settings;
+  protected $settings = array();
   
   /**
    * @var string
@@ -98,7 +98,7 @@ abstract class CerField extends FieldInstance {
   }
 
   /**
-   * Returns information about a particular field plugin, by its identifier, or all
+   * Returns information about a particular field plugin by its identifier, or all
    * available plugins (i.e., defined by hook_cer_fields()) if no identifier is given.
    * The aggregated result of hook_cer_fields() is statically cached.
    */

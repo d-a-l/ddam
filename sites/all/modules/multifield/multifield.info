@@ -6,13 +6,16 @@ dependencies[] = ctools
 dependencies[] = field
 configure = admin/structure/multifield
 files[] = MultifieldEntityController.php
-files[] = plugins/export_ui/multifield_export_ui.class.php
 files[] = tests/MultifieldAdministrationTestCase.test
+files[] = tests/MultifieldDevelGenerateTestCase.test
+files[] = tests/MultifieldEntityTranslationTestCase.test
 files[] = tests/MultifieldUnitTestCase.test
+test_dependencies[] = entity_translation
+test_dependencies[] = devel
 
-; Information added by Drupal.org packaging script on 2014-02-17
-version = "7.x-1.0-unstable9"
+; Information added by Drupal.org packaging script on 2014-08-19
+version = "7.x-1.0-alpha1"
 core = "7.x"
 project = "multifield"
-datestamp = "1392625111"
+datestamp = "1408468135"
 

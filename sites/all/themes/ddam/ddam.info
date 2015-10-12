@@ -26,10 +26,10 @@ regions[page_bottom]    = 'Page bottom'
 
 ; stylesheets[all][] = css/style.css
 stylesheets[all][] = bootswatch/ddam/bootstrap.css
+stylesheets[all][] = fontcustom/fontcustom/fontcustom.css
 stylesheets[all][] = css/bootstrap-overrides.css
-stylesheets[all][] = css/partial_collapsible.css
+; stylesheets[all][] = css/partial_collapsible.css
 stylesheets[all][] = css/ddam.css
-
 
 ; For information on choosing the desired method, please read the Drupal
 ; Bootstrap sub-theme "how-to" documentation:

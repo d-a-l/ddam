@@ -6,6 +6,13 @@
  * what this hook is for. It should always return an array, even if there are
  * no fields to expose. The ultimate goal of this hook is to define a flattened
  * hierarchy of all the reference-type fields that CER can use.
+ *
+ * A reference-type field is any type of field that can refer to an entity.
+ * This is pretty broadly defined: for example, CER considers field collections
+ * to be reference-type fields, since they refer to entities of the
+ * field_collection_item type. Even though the field collection may be displayed
+ * as an embedded part of its host entity, at heart it's still just a reference
+ * to an entity.
  */
 function hook_cer_fields() {
   return array(
@@ -51,5 +58,5 @@ function hook_cer_fields() {
  * Alter the information gathered by hook_cer_fields().
  */
 function hook_cer_fields_alter(array &$fields) {
-  // @todo
+  // Do clever things here.
 }

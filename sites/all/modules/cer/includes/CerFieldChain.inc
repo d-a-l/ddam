@@ -18,8 +18,8 @@ class CerFieldChain extends FieldChain {
   }
 
   /**
-   * Gets a regular expression to match field chain identifiers that this chain can
-   * reference, e.g. /^node:(page|article):/
+   * Gets a regular expression to match field chain identifiers that this chain
+   * can reference, e.g. /^node:(page|article):/
    */
   public function regex() {
     $end = $this->end();
@@ -57,8 +57,8 @@ class CerFieldChain extends FieldChain {
   }
 
   /**
-   * Returns an array of every possible field chain for a single field, identified
-   * by its key in hook_cer_fields().
+   * Returns an array of every possible field chain for a single field,
+   * identified by its key in hook_cer_fields().
    *
    * @return array
    */

@@ -9,9 +9,9 @@ files[] = includes/FieldChain.inc
 files[] = includes/FieldHierarchy.inc
 files[] = includes/FieldInstance.inc
 
-; Information added by Drupal.org packaging script on 2014-07-05
-version = "7.x-3.0-alpha5+37-dev"
+; Information added by Drupal.org packaging script on 2014-08-13
+version = "7.x-3.0-alpha7"
 core = "7.x"
 project = "cer"
-datestamp = "1404571730"
+datestamp = "1407974153"
 

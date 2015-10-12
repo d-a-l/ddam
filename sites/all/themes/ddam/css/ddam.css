@@ -7,22 +7,32 @@
    ======
 */
 
+
+
+
 .container {
-    max-width: 940px;
+    max-width: 990px; /* -15px row margin = 960 */
 }
 
-.main-container {
-    padding-top: 60px;
+.row.top-items,
+.row.actions-tab,
+.row.ddam-ht {
+  margin-left: 0; margin-right: 0;
 }
 
-.front .main-container {
-    padding-top: 0px;
+.page-portada .main-container {
+    padding-top: 0;
+}
+
+.page-portada #page-header {
+   margin: 0 0 90px;
 }
 
 #navbar {
     max-width: 100%;
     width: 100%;
     padding: 0;
+    margin-bottom: 60px;
 }
 
 .navbar.container > .container {
@@ -30,155 +40,1317 @@
     max-width: 1140px;
 }
 
+.navbar-default {
+    background-color: #161650;
+}
+
+.region-sidebar-second .block {
+    margin-bottom: 30px;
+}
+
+
+/* acerca de */
+
+.page-portada #block-block-1 {
+  /* bloque acerca de */
+  
+    font-size: 19px;
+    font-family: 'EB Garamond', Georgia, "Times New Roman", Times, serif;
+    
+    border: 2px solid #000000;
+    margin: 60px 0 -30px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+
+.node-pagina .field-name-body {
+  /* bloque acerca de */
+  
+    font-size: 19px;
+    font-family: 'EB Garamond', Georgia, "Times New Roman", Times, serif;
+    color: black;
+}
+
+/* */
+
+img {
+    border: 0 none;
+    height: auto;
+/*    width: 100%; */
+}
+
+.field-name-field-imagen img {
+  width: 100%;
+}
 
 
 /* ======= iconos ======= */
 
-.bibliocard .icon.icon-libro {
+.bibliocard-box .icon.icon-libro {
    width: 65px; height: 88px;
-   background: url('img/icons/libro.png') no-repeat -10px -10px transparent;
+   background: url('img/icons/libro.png') no-repeat 0 0 transparent;
 }
 
+.default-img {
+   color: #666666;
+}
+
+/* short teaser */
+
+.short-teaser-default-img.default-img {
+   width:80px; height:100px;
+   display: inline-block;
+}
+
+.short-teaser-default-img.default-img:before {
+    color: #000000;
+    font-size: 96px;
+    height: 100%;
+    line-height: 0.7em;
+    overflow: hidden;
+    width: 94%;
+}
 
 /* box teaser */
 
-.box-teaser {
-   font-size: 15px;
-   font-family: helvetica;
-   margin-bottom: 36px; /* @height-gutter */
+.box-teaser-default-img.default-img {
+   width:100%; height:100%;
+   display: inline-block;
 }
 
-.box-teaser .box-teaser-wrapper {
-   background-color: #a7ac93;
-   height: 232px;
-   padding: 20px 23px;
+.box-teaser-default-img.default-img:before {
+    font-size: 13em;
+    line-height: 1em;
+/*    text-indent: -14px; */
+
+    overflow: hidden;
+    width:100%; height:100%;
 }
+
+
+/* full */
+
+.full-default-img.default-img {
+   width: 378px; height: 376px;
+}
+
+.full-default-img.default-img:before {
+    font-size: 21em;
+    line-height: 0.9em;
+/*    text-indent: -7px; */
+
+    overflow: hidden;
+    width: 100%; height: 100%;
+}
+
+/* iconos */
+
+.default-img.libro:before {
+  content: "\f105";
+}
+
+.default-img.fotografia:before {
+  content: "\f112"; /* una fotografia sin fotografia? */
+}
+
+.default-img.numero_publicacion_periodica:before {
+  content: "\f10f";
+}
+
+.default-img.publicacion_periodica:before {
+  content: "\f110";
+}
+
+.default-img.coleccion:before {
+  content: "\f108";
+}
+
+.default-img.organizaci_n:before {
+  content: "\f10e";
+}
+
+.default-img.programa:before {
+  content: "\f107"; 
+}
+
+.default-img.persona:before {
+  content: "\f111";
+}
+
+/* pagination */
+
+.view-obras > .text-center {
+  clear: both;
+}
+
+.pagination {
+
+}
+
+.pagination > li > a, 
+.pagination > li > span {
+  background-color: white;
+  color: #808080;
+  border: 2px solid black;
+  border-right: none;
+}
+
+.pagination > li:last-child > a, 
+.pagination > li:last-child > span {
+  border-right: 2px solid black;
+}
+
+
+.pagination > .active > a, 
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus {
+  background-color: black;
+  color: white;
+}
+
+.pagination > li > a:hover, 
+.pagination > li > span:hover, 
+.pagination > li > a:focus, 
+.pagination > li > span:focus {
+  background-color: black;
+  color: white;
+}
+
+/* fontcustom actions */
+
+.icon-actions {
+   width: 36px; height: 36px;
+   cursor: pointer;
+   float: right;
+}
+.icon-actions:before {
+   font-size: 96px;
+   line-height: 36px;
+   width: 36px; height: 36px;
+   /* margin: -0.03em 0 0 -0.3em; */
+   overflow: hidden;
+   text-indent: -31px;
+}
+
+.icon-actions.icon-action_download {
+   float: left;
+}
+
+/* 
+.icon.icon-download {background: url('img/icons/download-black.png') no-repeat 0 0 transparent;}
+.icon.icon-tw {background: url('img/icons/tw-black.png') no-repeat 0 0 transparent;}
+.icon.icon-fb {background: url('img/icons/fb-black.png') no-repeat 0 0 transparent;}
+.icon.icon-add {background: url('img/icons/add-black.png') no-repeat 0 0 transparent;}
+.icon.icon-star {background: url('img/icons/star-black.png') no-repeat 0 0 transparent;}
+*/
+
+/* fontcustom desc */
+
+.icon-fc:before {
+  display: inline-block;
+  font-family: "fontcustom";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  margin:0 -0.3em 0 -0.2em;
+}
+
+.icon-348:before { /* foto */
+  content: "\f117";
+}
+
+.icon-350:before { /* ilus */
+  content: "\f115";
+}
+
+.icon-346:before { /* mapa */
+  content: "\f116";
+}
+
+.icons-desc {
+  font-size: 48px;
+}
+/* - vistas - */
+/* probablemente haya que agrupar cosas dispersas aqui! */
+
+.view-display-id-page_colecciones .node {
+   margin-bottom: 30px;
+}
+
+/* short teaser */
+
+.node.short-teaser {
+}
+
+.node.short-teaser.node-publicacion-periodica .short-teaser-wrapper {
+   background-color: #cceeee;
+}
+
+.view.view-id-obras .views-row-last .short-teaser-wrapper {
+  border-bottom: none;
+}
+
+.view.view-id-obras .views-row {
+  margin-left:-8px;
+  margin-right:-8px;
+}
+
+.short-teaser-wrapper {
+  position: relative;
+  min-height: 140px;
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bbbbbb;
+}
+.node-novedad > .short-teaser-wrapper {
+  min-height: 270px;
+}
+
+.node.short-teaser .clearfix:before, 
+.node.short-teaser .clearfix:after,
+.node.short-teaser .field-items .field-item {
+   display: inline;  
+}
+
+.node.short-teaser .field {
+    clear: both; 
+    padding-top: 5px;
+}
+
+.short-teaser-left {
+  width: 100px;
+  position: absolute;
+  left: 0; top: 22px;
+  text-align: right;
+}
+
+.short-teaser-content,
+.short-teaser-content p {
+  color: #808080;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 22px !important;
+}
+
+.short-teaser-content {
+  margin: 0 0 0 120px;
+}
+
+.short-teaser-content .field-label {
+  color: #808080;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.short-teaser-content h3 {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    padding: 0 0 6px;
+}
+
+.short-teaser-content h3 a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.short-teaser-content h3 a:hover {
+    text-decoration: underline;
+}
+
+.short-teaser-content .volanta {
+}
+
+/* short teaser novedad */
+
+.node-novedad .short-teaser-wrapper {
+  min-height: 230px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  padding-top: 0;
+}
+
+.node-novedad .short-teaser-left {
+  width: 200px; top: 0px;
+}
+
+.node-novedad .short-teaser-left img {
+  width: 100%;
+}
+.node-novedad .short-teaser-content {
+  margin: 0 0 0 225px;
+}
+.node-novedad .short-teaser-content .wrapper {
+  position:relative;
+}
+
+.node-novedad .short-teaser-content h3 {
+    /* position: absolute;    bottom: 0; left: 0; */
+    font-size:  22.4px; 
+    line-height:  24.6px; 
+    margin: 0;
+    padding: 5px 0 0;
+}
+
+.node-novedad .short-teaser-content .autor {
+    font-size: 14px;
+    margin-left: 72px;
+    margin-top: 2px;
+}
+
+.node-novedad .short-teaser-content .content {
+  margin-top: 10px;
+}
+
+.node-novedad .short-teaser-content .field-name-body,
+.node-novedad .short-teaser-content .field-name-body p {
+    font-family: 'EB Garamond',Georgia,"Times New Roman",Times,serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: black;
+}
+
+/* box teaser */
+
+.page-blog .box-teaser.col-xs-custom {
+   width: 100%;
+}
+
+.box-teaser {
+   font-size: 15px;
+   margin-bottom: 16px; /* @height-gutter */
+   padding-left:8px;
+   padding-right:8px;
+   position: relative;
+}
+
+.page-blog .box-teaser,
+.box-teaser.in-front {
+   padding-left: 0;
+   padding-right: 0;
+}
+
+     /* aspect ratio 1:1 css trick -> http://www.mademyday.de/css-height-equals-width-with-pure-css.html */
+     /* box */
+.box-teaser-top {
+   background-color: black;
+      position: relative;
+}
+
+     /* box:before */
+.box-teaser-top:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+     /* content */
+.box-teaser .field.field-name-field-imagen,
+.box-teaser-top > a {
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 18px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    
+    height: 100%;
+}
+.node-coleccion > .box-teaser-top > a,
+.node-publicacion-periodica > .box-teaser-top > a {
+    padding: 0;
+    border: 2px solid black;
+    border-bottom: none;
+}
+
+     /* aspect ratio 1:0.3 css trick -> http://www.mademyday.de/css-height-equals-width-with-pure-css.html */
+     /* box */
+.box-teaser-bottom {
+   border: 2px solid black;
+   border-top: none;
+   position: relative;
+   overflow: hidden;
+}
+     /* box:before */
+.box-teaser-bottom:before{
+	content: "";
+	display: block;
+	padding-top: 33%; 
+}
+     /* content */
+.box-teaser-bottom-content {
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 9px 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+    border-top: 2px solid #000000;
+   /* box-shadow: 6px 6px 20px 0 rgba(50, 50, 50, 0.28); */
+}
+
+
+.node-coleccion > .box-teaser-bottom > .box-teaser-bottom-content,
+.node-publicacion-periodica > .box-teaser-bottom > .box-teaser-bottom-content {
+    background-color: #cceeee;
+}
+     /* hover effect */
+
+.box-teaser:hover .box-teaser-bottom-content {
+    top: auto;
+}
+
+.box-teaser:hover .box-teaser-bottom {
+    overflow: visible;
+}
+.box-teaser:hover .groups {
+   display: block;
+}
+
 
 /* default */
 
-.box-teaser .field.field-name-field-imagen {
-   width: 90px;
-   float: left;
-   margin: 0 23px 15px 0;
-   box-shadow: 6px 6px 20px 0 rgba(50, 50, 50, 0.28);
+.box-teaser .box-teaser-bottom {
+/*
+   box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
+   transition: all 0.5s ease-out;
+*/
 }
 
-.box-teaser .box-teaser-body-top-wrapper {
-   /* display: inline-block; */
+.box-teaser .node-type {
+    color: #808080;
+    font-size: 9px;
+    font-weight: bold;
+    margin: 0 0 2px;
+    text-transform: uppercase;
 }
 
-.box-teaser .box-teaser-body-top-wrapper > div:first-child {
-   margin-top: -3px;
-}
-
-.box-teaser .box-teaser-body-top-wrapper .node-type {
-   font-size: 12px;
-   text-transform: uppercase;
-   font-weight: bold;
-}
-
-.box-teaser .box-teaser-body-top-wrapper h2, 
-.box-teaser .box-teaser-body-top-wrapper h3 {
+.box-teaser-bottom h2, 
+.box-teaser-bottom h3 {
    font-size: 16px;
-   font-family: helvetica;
-   margin: 2px 0;
+   margin: 0 0 4px ;
 }
 
-.box-teaser .box-teaser-body-bottom-wrapper {
-   clear: left;
+.box-teaser h3 a {
+    color: #000000;
+}
+
+.box-teaser .groups {
+   font-size: 13px;
+   margin-top: 10px;
+   display: none;
+}
+.box-teaser .groups .field-label {
+   font-weight: normal;
+}
+
+.box-teaser .groups .field:after {
+
+}
+
+.box-teaser .groups .field:last-child:after {
+
+}
+
+
+.box-teaser .group-top *{
+   /* display: inline; float: none; */
+}
+
+.box-teaser .group-top .clearfix:before, 
+.box-teaser .group-top .clearfix:after{
+   /* display: inline; */
+}
+
+.box-teaser .group-bottom {
+}
+
+
+
+
+.box-teaser .field.field-name-field-imagen div {
+   display: inline;
+}
+
+.box-teaser .field.field-name-field-imagen img,
+.box-teaser-top > a > img { 
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+
+/* minibox teaser */
+
+.minibox-teaser {
+    margin: 0 0 30px;
+}
+
+.minibox-teaser-img {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 140px;
+}
+
+.minibox-teaser-body {
+    font-size: 13px;
+}
+
+.minibox-teaser-body > h3 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.minibox-teaser-body > h3 a{
+    color: black;
+}
+
+.minibox-teaser-body .line * {
+    float: none;
+}
+
+.minibox-teaser-body .line .clearfix:before, 
+.minibox-teaser-body .line .clearfix:after {
+   display: inline; 
+}
+
+.minibox-teaser .line.fecha *,
+.minibox-teaser .line.actividad * {
+    display: inline;
+    float: none;
+}
+
+.minibox-teaser .line.actividad .field-item:after {
+   content: " / ";
+}
+
+.minibox-teaser .line.actividad .field-item:last-child:after {
+   content: "";
+}
+
+.minibox-teaser .line.fecha .clearfix:before, 
+.minibox-teaser .line.actividad .clearfix:after{
+   display: inline; 
+}
+
+
+/* popup link css */
+
+.popup-files {
+  position: relative; /* border: 1px solid black; */
+  float: left;
+}
+
+.popup-files:hover .field-name-field-archivo {
+  display: block;
+}
+
+
+.popup-files .field-name-field-archivo {
+    display: none;
+    left: -18px;
+    padding: 40px 0 0 0;
+    position: absolute;
+    top: 20px;
+    width: 600px;
+    z-index: 100;
+    background: url("img/punta.png") no-repeat scroll 11px 27px rgba(0, 0, 0, 0);
+}
+
+.popup-files .field-name-field-archivo .field-items {
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-bottom: 1px solid #000000;
+    font-size: 15px;
+    padding: 0;
+    
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.23);
+    -moz-box-shadow:    3px 3px 3px 0px rgba(50, 50, 50, 0.23);
+    box-shadow:         3px 3px 3px 0px rgba(50, 50, 50, 0.23);
+}
+
+.popup-files .field-name-field-archivo:hover {
+  display: block;
+}
+
+.popup-files .field-name-field-archivo table.sticky-header {
+   display: none;
+}
+
+.popup-files .field-name-field-archivo table.table-striped {
+   margin: 0;
+}
+
+.popup-files .field-name-field-archivo table.table-striped thead {
+   background-color: #000000;
+   color: #FFFFFF;
+}
+
+.popup-files .field-name-field-archivo table.table-striped tbody tr {
+   border-bottom: 1px solid #000000;
+}
+
+.popup-files .field-name-field-archivo a {
+   text-decoration: none;
+}
+
+.popup-files .field-name-field-archivo a:hover {
+   text-decoration: underline;
+}
+
+/* libro */
+
+.top-items {
+   border: 2px solid black;
+   position: relative; /* solo para .bibliocard-alt que necesita posicionarse como absolute */
+   overflow: hidden;
+}
+
+.bibliocard-box {
+    background-color: white;
+}
+
+.bibliocard-wrapper, .slideshow-imagen {
+    padding: 50px;
+}
+
+.node-coleccion .bibliocard-wrapper {
+    padding: 48px;
+}
+
+.slideshow-box {
+    position: relative;
+    background-color: black;
+}
+
+.slideshow-box, .bibliocard-box {
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-extra {
+}
+
+
+.field-slideshow {
+   margin: 0 auto;
+}
+
+.field-slideshow-pager {
+     position: absolute;
+     bottom: 12px; left: 12px;
+}
+
+
+.field-slideshow-wrapper {
+  /*  height: 388px; */
+}
+
+.slideshow-default-img {
+   width: 378px;
+   height: 376px;
+}
+
+.home-slideshow-default-img {
+   width: 960px;
+   height: 480px;
+   background: url('home-slideshow-default-img.png') no-repeat 0 0 red;
+
+}
+
+/* colecciones */
+
+.bibliocard-box-alt {
+   width: 50%;
+   position: absolute;
+   right: 0;
+   top: 0;
+   min-height: 236px;
+   background: none repeat scroll 0 0 rgba(204, 238, 238, 0.8);
+   border-left: 2px solid #000000;
+}
+
+.slideshow-box.slideshow-box-alt {
+   position: relative;
+   height: 236px;
+   padding: 0;
+}
+
+.slideshow-box.slideshow-box-alt .slideshow-imagen {
+    padding: 0;
+}
+
+.slideshow-box-alt .slideshow-default-img {
+    width:auto; height: auto;
+}
+
+
+.bibliocard-box.bibliocard-box-alt h1 {
+    margin-bottom: 20px;
+}
+
+.node-coleccion.node-teaser .bibliocard-wrapper h2 {
+  font-size: 41.2px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 95%;
+    margin: 3px 0 20px;
+}
+
+.node-coleccion.node-teaser .bibliocard-wrapper h2 a {
+  color: black;
+  
+}
+
+.coleccion-summary {
+   font-size: 20px; line-height: 26px;
+   margin-top: -60px; margin-bottom: 60px;
+}
+
+      /* icons */
+
+/* .node-libro.full .icon.icon-download { */
+
+
+
+   /* actions-tab */
+.actions-tab {
+    margin-bottom: 90px;
+    margin-top: 10px;
+}
+
+.row.ddam-ht.content {
+    margin-bottom: 70px;
+
+}
+
+/* pseudo tabs */
+
+.pseudo-tabs-list,
+.bottom-tab > h3 {
+   border-bottom: 2px solid black;
+   font-size: 18px;
+}
+
+.pseudo-tabs-list strong,
+.bottom-tab > h3 > span {
+    background-color: #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+    border-top: 2px solid #000000;
+    color: #FFFFFF;
+    display: inline-block;
+}
+    
+.bottom-tab > h3 {
+    margin:0;
+}
+
+.pseudo-tabs-pane,
+.bottom-tab > .bottom-tab-pane,
+.bottom-tab > .field {
+   padding-top: 30px;
+}
+
+.bottom-tab {
+   font-size: 15px;
+}
+
+/* tags */
+
+.bottom-tab .field-name-field-descriptores ,
+.bottom-tab .field-name-field-etiquetas {
+  font-size: 18px;
+}
+
+.etiquetas .views-field,
+.col-lateral .field-name-field-etiquetas,
+.group-etiquetas .field-item {
+  font-size: 16px;
+}
+
+.etiquetas .views-field a,
+.bottom-tab .field-name-field-descriptores .field-item a ,
+.bottom-tab .field-name-field-etiquetas .field-item a,
+.col-lateral .field-name-field-etiquetas .field-item a,
+.group-etiquetas .field-item a {
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
+    display: inline-block;
+    margin: 0 0.4em 0.4em 0;
+    padding: 0.08em 0.5em 0.1em;
+}
+
+.etiquetas .views-field a {
+    margin-right: 0.1em;
+}
+
+.etiquetas .views-field, .etiquetas .views-row,
+.bottom-tab .field-name-field-descriptores .field-item,
+.bottom-tab .field-name-field-etiquetas .field-item,
+.col-lateral .field-name-field-etiquetas .field-item,
+.group-etiquetas .field-item {
+    display: inline;
+}
+
+.etiquetas .views-field a:hover,
+.bottom-tab .field-name-field-descriptores .field-item a:hover,
+.bottom-tab .field-name-field-etiquetas .field-item a:hover,
+.col-lateral .field-name-field-etiquetas .field-item a:hover,
+.group-etiquetas .field-item a:hover {
+    background: none repeat scroll 0 0 #6ccdcd;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* daam ht: horizontal-tabs */
+   
+
+.ddam-ht .horizontal-tabs {
+
+}
+
+.ddam-ht div.horizontal-tabs {
+   border: none;
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tabs-list {
+   border: none;
+   border-bottom: 2px solid black;
+   background-color: white;
+}
+
+.ddam-ht .horizontal-tabs ul.horizontal-tabs-list li {
+    background: none repeat scroll 0 0 white;
+    min-width: 5em;
+    padding: 0;
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tab-button {
+   border-top: 2px solid black;
+   border-right: 2px solid black;
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tab-button.first {
+   border-left: 2px solid black;
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tab-button.selected,
+.ddam-ht .horizontal-tabs .horizontal-tab-button.selected a,
+.ddam-ht .horizontal-tabs .horizontal-tab-button.selected a strong {
+      background-color: black;
+      color: white;
+
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tab-button a {
+      color: black;
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tab-button a:hover {
+      background-color: black;
+      color: white;
+}
+
+.ddam-ht .horizontal-tabs .horizontal-tabs-panes, 
+.ddam-ht .panel {
+      background-color: white;
+}
+
+.ddam-ht .horizontal-tabs fieldset.horizontal-tabs-pane {
+   padding: 0;
+}
+
+.ddam-ht .panel-body {
+   padding-top: 30px;
+   padding-left: 0;
+   padding-right: 0;
+   font-size: 18px;
+}
+
+.ddam-ht .panel-body p{
+   line-height: 1.3em;
+}
+
+.horizontal-tabs ul.horizontal-tabs-list li a, .horizontal-tabs ul.horizontal-tabs-list li.selected a,
+.pseudo-tabs-list strong,
+.bottom-tab > h3 > span {
+    padding: 0.45em 0.6em 0.4em;
+}
+
+    /* panel description only */
+
+
+.ddam-ht .group-descripcion .panel-body .field {
+   max-width: 30em;
+   font-size: 20px;
+}
+
+/* ddam ds: data-sheets */
+
+.ddam-ds { /* agrupa cada h3 */
+   /* max-width: 470px; */
+   padding-bottom: 30px;
+}
+
+.ddam-ds .field {
+   border-bottom: 1px solid #BBBBBB;
+   padding: 8px 0;
+   font-family: helvetica;
+}
+
+.ddam-ds .field-label {
+    color: #808080;
+
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 22px;
+    text-align: right;
+    text-transform: inherit;
+    width: 180px;
+    margin-right: -180px;
+}
+
+.ddam-ds .field-items {
+    font-size: 16px;
+    line-height: 22px;
+    margin-left: 180px;
+}
+
+.ddam-ds h3 {
+    border-bottom: 2px solid #000000;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    padding: 0 0 8px;
+
 }
 
 /* fotografia */
 
-.box-teaser.node-fotografia .field.field-name-field-imagen {
-   margin: 0;
-   width: 100%;
-   float: none;
-}
-
-.box-teaser.node-fotografia .box-teaser-body-top-wrapper {
-   margin: 12px 0 0 0;
-   padding-left: 0;
-}
-
-.box-teaser.node-fotografia .box-teaser-body-top-wrapper > div:first-child {
-   margin: 0 0 -1px;
-}
-
-.box-teaser.node-fotografia .box-teaser-body-top-wrapper .node-type {
-}
-
-.box-teaser.node-fotografia .box-teaser-body-top-wrapper h2, 
-.box-teaser.node-fotografia .box-teaser-body-top-wrapper h3 {
-}
-
-.box-teaser.node-fotografia .box-teaser-body-bottom-wrapper {
-   clear: none;
-   margin-top: 0;
+.node-fotografia.full .bibliocard-box h1 {
+    font-size: 31.2px;
 }
 
 /* pub periodica (coleccion) */
 
-.box-teaser.node-publicacion-periodica .field.field-name-field-imagen {
-   display: none;
-}
-
-.box-teaser.node-publicacion-periodica .node-type-icon {
-    background: url('img/icons/publicacion_periodica.png') no-repeat 0px 2px transparent;
-    float: left;
-    height: 60px;
-    margin-right: 10px;
-    width: 49px;
-}
-
-.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper {
-   display: block;
-   min-height: 60px;
-}
-
-.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper > div:first-child {
-   margin-top: 0;
-}
-
-.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper .node-type {
-}
-
-.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper h2, 
-.box-teaser.node-publicacion-periodica .box-teaser-body-top-wrapper h3 {
-}
-
-.box-teaser.node-publicacion-periodica .box-teaser-body-bottom-wrapper {
-   clear: none;
-   margin-top: 8px;
-}
 
 /* publicacion periodica (ejemplar) */
 
-.box-teaser.node-numero-publicacion-periodica .box-teaser-body-top-wrapper {
-   display: inline-block;
-   width: 50%:
-   /* ToDo: hay un problema en la forma en que se muestran los campos 
-      que hace que como inline el segundo salte por abajo de la imagen
-   */
-}
-
 /* coleccion */
 
-.box-teaser.node-coleccion .node-type-icon {
-    background: url('img/icons/coleccion.png') no-repeat 0 0 transparent;
+.box-teaser.node-coleccion .box-teaser-bottom {
+   background-color: yellow;
+}
+
+
+.box-teaser.node-coleccion .field.field-name-field-imagen {
+    /* imagen ocupa todo el area de la imagen */
+}
+
+.view-id-obras {
+}
+
+.view-id-obras.view-display-id-block, 
+.field-name-field-relacionados {
+    /* para corregir alineacion de todas las vistas dentro horizontal pads */
+    margin: 0 -8px;
+}
+
+/* ---------------------------- */
+
+.well {
+   margin-bottom: 30px;
+}
+
+
+
+
+
+/* ====================== HOME ========================== */
+
+/* novedad teaser */
+
+.node-novedad.teaser  {
+   position:relative;
+}
+
+.novedad-teaser-wrapper {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.65);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+}
+
+.novedad-teaser-wrapper .wrapper{
+    padding: 20px;
+}
+
+.novedad-teaser-wrapper .fields-wrapper {
+    font-family: 'EB Garamond',Georgia,"Times New Roman",Times,serif;
+    font-size: 18px;
+    line-height: 22px;
+    clear: both;
+    padding-top: 20px;
+}
+
+.novedad-teaser-wrapper h2 {
+    color: #000000;
+    font-size: 22.4px;
+    margin: -1px 0 0;
+}
+
+
+.novedad-teaser-wrapper h2 a {
+    color: black;
+}
+
+
+.novedad-teaser-wrapper .field-name-body a {
+ /* temp! para solucionar el bug smart trimming */
+   color: black;
+   cursor: text;
+}
+.novedad-teaser-wrapper .field-name-body a:hover {
+   text-decoration: none;
+}
+.novedad-date {
+    background-color: #000000;
+    color: #FFFFFF;
     float: left;
-    height: 60px;
-    margin-right: 10px;
-    width: 55px;
+    margin: 0 9px 0 0;
+    padding: 5px;
+    text-align: center;
+    width: 60px;
 }
 
-.box-teaser.node-coleccion .box-teaser-body-top-wrapper {
-   display: block;
-   min-height: 60px;
+.novedad-date .day {
+    display: block;
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 38px;
+    margin: -1px 0 0 -3px;
+}
+.novedad-date .mes {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 15px;
+    margin-top: -2px;
+    text-transform: uppercase;
 }
 
-.box-teaser.node-coleccion .box-teaser-body-bottom-wrapper {
-   clear: none;
-   margin-top: 8px;
+
+
+/* novedades bottom */
+
+#block-views-novedades-block-1 {
 }
 
+.node-novedad.teaser-bottom {
+   margin-bottom: 30px;
+}
+
+.node-novedad.teaser-bottom .novedad-teaser-wrapper {
+   width: 100%;
+   min-height: 100px;
+}
+
+
+
+/* novedad slideshow */
+
+.node-novedad.slideshow,
+.top-node-novedad-full {
+   position:relative;
+}
+
+.node-novedad.slideshow img,
+.top-node-novedad-full img {
+         max-width: 960px;
+         /*          width: 100%;
+         height: auto; */
+}
+
+.node-novedad.slideshow .title-wrapper {
+   position: absolute;
+   right: 0;
+   text-align: right;
+   bottom: 55px;
+   margin: 0;
+   padding: 0 15px;
+   max-width: 50%;
+}
+
+.top-node-novedad-full .title-wrapper {
+   position: absolute;
+   left: 0;
+   bottom: 55px;
+   margin: 0;
+   padding: 0 15px;
+   max-width: 90%;
+}
+
+.node-novedad.slideshow .field-name-field-volanta,
+.top-node-novedad-full .field-name-field-volanta {
+    color: #6ccdcd;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.node-novedad.slideshow .field-name-field-volanta .field-item,
+.top-node-novedad-full .field-name-field-volanta .field-item {
+    background-color: #FFFFFF;
+    display: inline;
+    margin: 0 -15px;
+    padding: 4px 15px;
+}
+
+.node-novedad.slideshow .slideshow-title,
+.top-node-novedad-full .slideshow-title { /* h2 */
+   display: inline;
+   background-color: black;   
+   line-height: 66px;
+   font-size: 41.2px;
+}
+
+.node-novedad.slideshow .slideshow-title span,
+.top-node-novedad-full .slideshow-title span {
+      display: inline;
+      color: white;
+      font-style: normal;
+      font-weight: bold;
+      
+      background-color: black;   
+      box-shadow: 15px 0 0 black, -15px 0 0 black;
+      -webkit-box-shadow: 15px 0 0 black, -15px 0 0 black;
+      -moz-box-shadow; 15px 0 0 black, -15px 0 0 black;
+}
+
+.node-novedad.slideshow .slideshow-title span a,
+.top-node-novedad-full .slideshow-title span span {
+      font-size: 41.2px;
+      color: white;
+}
+
+.node-novedad.slideshow .slideshow-title span a:hover,
+.top-node-novedad-full .slideshow-title span span:hover {
+      color: #dddddd;
+      text-decoration: none;
+}
+
+.node-novedad.full .actions-tab {
+    margin-bottom: 40px;
+}
+
+.node-novedad.full .field-name-body {
+    font-family: 'EB Garamond',Georgia,"Times New Roman",Times,serif;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.node-novedad.full .submitted {
+    color: #777777;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 1em;
+    font-size: 15px;
+}
+
+
+.node-novedad.full .volanta-title {
+    font-family: 'EB Garamond',Georgia,"Times New Roman",Times,serif;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0 0 40px;
+    /* text-transform: uppercase; color: #6CCDCD; */
+}
+
+.node-type-novedad .page-header {
+
+    font-size: 41.2px;
+    letter-spacing: -1px;
+    line-height: 95%;
+    margin: 0 0 17px;
+}
+
+.node-novedad.full .novedad-date {
+    float: none;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.node-type-novedad .field-name-field-imagen {
+    margin-bottom: 40px;
+}
+
+.node-novedad.full .actions-tab {
+  left: -6px;
+  position: relative;
+}
+
+.node-novedad.full .icon-actions {
+   float: left;
+}
+
+/* search */
+
+form#search-block-form .form-control {
+   border-color: #6ccdcd;
+}
+
+form#search-block-form .btn-default {
+   background-color: #6ccdcd;
+   border-color: #6ccdcd;
+}
+
+/* responsive extra */
+
+@media (max-width: 768px) {
+   .col-xs-custom {
+     width: 229px;
+   }
+   
+   .page-blog .box-teaser.col-xs-custom { width: 229px; }
+   .page-blog .box-teaser { padding-left:8px; padding-right: 8px; }
+
+   .ddam-ds .field-label {
+     margin-left: 10px; margin-right: 0; text-align: left; width: auto;
+   }
+   .ddam-ds .field-items {
+     margin-left: 30px; float: none;
+   }
+}
+
+@media (max-width: 1000px) {
+   form#search-block-form {
+       clear: both;
+       display: block;
+       margin: 0 -15px 0 -20px;
+   }
+   #block-search-form {
+      clear: both;
+      display: block;
+      float: none !important; 
+   }
+}

@@ -25,15 +25,17 @@ function location_location_ctools_contexts() {
 /**
  * Create a context, either from configuration or an argument on the URL.
  *
- * @param $empty
+ * @param bool $empty
  *   If true, just return an empty context.
- * @param $data
+ *
+ * @param array $data
  *   If from settings form, a form values array. If from argument, a string.
- * @param $conf
+ *
+ * @param bool $conf
  *   TRUE if the $data is coming from admin configuration, FALSE if it's
  *   from a URL arg.
  *
- * @return
+ * @return object
  *   a Context object
  */
 function location_context_create_location($empty, $data = NULL, $conf = FALSE) {
@@ -57,10 +59,14 @@ function location_context_create_location($empty, $data = NULL, $conf = FALSE) {
     $context->data = $data;
     $context->title = $data['city'];
     $context->argument = $data['lid'];
+
     return $context;
   }
 }
 
+/**
+ * Settings form.
+ */
 function location_settings_form($conf, $external = FALSE) {
   return array();
 }
@@ -72,6 +78,7 @@ function location_context_location_convert_list() {
   $fields = location_field_names();
   $fields['country_name'] = t('Country name');
   $fields['province_name'] = t('State/Province name');
+
   return $fields;
 }
 
